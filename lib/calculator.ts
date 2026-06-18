@@ -3,7 +3,6 @@ export type CalculatorInput = {
   country: string;
   regime?: string;
   employmentType?: "employee" | "self-employed" | "company-owner";
-  employerFeePercent?: number;
   serviceFeePercent?: number;
 };
 

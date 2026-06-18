@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { languages, translations, type Lang } from "@/lib/content";
 

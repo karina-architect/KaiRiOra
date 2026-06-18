@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#f8fbff"/>
+<rect x="40" y="40" width="1520" height="90" rx="22" fill="white" stroke="#d9e4f2"/>
+<text x="80" y="98" font-family="Arial" font-size="44" font-weight="800" fill="#07152f">Kai</text>
+<text x="156" y="98" font-family="Arial" font-size="44" font-weight="800" fill="#0B63F6">Ri</text>
+<text x="200" y="98" font-family="Arial" font-size="44" font-weight="800" fill="#F5A623">Ora</text>
+<text x="980" y="95" font-family="Arial" font-size="24" fill="#0b1430">Services  Countries  Comparison  Data &amp; AI</text>
+<rect x="1360" y="62" width="150" height="46" rx="12" fill="#0B63F6"/><text x="1394" y="94" font-family="Arial" font-size="20" font-weight="700" fill="white">Contact</text>
+<text x="70" y="230" font-family="Arial" font-size="66" font-weight="900" fill="#07152f">Work Anywhere in Europe.</text>
+<text x="70" y="310" font-family="Arial" font-size="66" font-weight="900" fill="#0B63F6">Keep More</text>
+<text x="410" y="310" font-family="Arial" font-size="66" font-weight="900" fill="#F5A623">of What You Earn.</text>
+<text x="72" y="370" font-family="Arial" font-size="26" fill="#334155">Spain &amp; Portugal first. Europe-wide payroll, EOR, calculators and AI guidance.</text>
+<rect x="70" y="430" width="240" height="60" rx="14" fill="#0B63F6"/><text x="103" y="468" font-family="Arial" font-size="22" font-weight="700" fill="white">Calculate Income</text>
+<rect x="330" y="430" width="240" height="60" rx="14" fill="#F5A623"/><text x="372" y="468" font-family="Arial" font-size="22" font-weight="700" fill="#07152f">Get Quote</text>
+<rect x="880" y="175" width="600" height="340" rx="36" fill="#EAF3FF" stroke="#c9dcf7"/>
+<circle cx="1120" cy="345" r="110" fill="#0B63F6" opacity=".15"/>
+<path d="M1010 360 C1090 260,1240 270,1360 330" fill="none" stroke="#0B63F6" stroke-width="6" opacity=".35"/>
+<circle cx="1080" cy="320" r="12" fill="#0B63F6"/><circle cx="1220" cy="300" r="12" fill="#F5A623"/><circle cx="1340" cy="335" r="12" fill="#0B63F6"/>
+<rect x="40" y="570" width="1520" height="360" rx="28" fill="white" stroke="#d9e4f2"/>
+<text x="70" y="640" font-family="Arial" font-size="38" font-weight="900" fill="#07152f">Advanced Salary Calculator</text>
+<rect x="70" y="685" width="300" height="60" rx="12" fill="#f8fbff" stroke="#d9e4f2"/><text x="95" y="724" font-family="Arial" font-size="20" fill="#334155">Gross Salary: €80,000</text>
+<rect x="395" y="685" width="250" height="60" rx="12" fill="#f8fbff" stroke="#d9e4f2"/><text x="420" y="724" font-family="Arial" font-size="20" fill="#334155">Country: Spain</text>
+<rect x="670" y="685" width="270" height="60" rx="12" fill="#f8fbff" stroke="#d9e4f2"/><text x="695" y="724" font-family="Arial" font-size="20" fill="#334155">Regime: Beckham</text>
+<rect x="990" y="660" width="230" height="110" rx="18" fill="#f8fbff" stroke="#d9e4f2"/><text x="1020" y="703" font-family="Arial" font-size="20" fill="#334155">Net Income</text><text x="1020" y="745" font-family="Arial" font-size="36" font-weight="900" fill="#087C4D">€58,124</text>
+<rect x="1240" y="660" width="230" height="110" rx="18" fill="#f8fbff" stroke="#d9e4f2"/><text x="1270" y="703" font-family="Arial" font-size="20" fill="#334155">Employer Cost</text><text x="1270" y="745" font-family="Arial" font-size="36" font-weight="900" fill="#0B63F6">€96,800</text>
+<text x="70" y="835" font-family="Arial" font-size="30" font-weight="800" fill="#07152f">Fixed build: alias paths added, all components included, Vercel-ready.</text>
+</svg>

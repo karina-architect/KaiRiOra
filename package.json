@@ -1,6 +1,6 @@
 {
-  "name": "kairiora-website-v3-complete",
-  "version": "3.0.0",
+  "name": "kairiora-website-final-fixed",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

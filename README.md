@@ -1,79 +1,39 @@
-# KaiRiOra Website v3 - Complete Multilingual Version
+# KaiRiOra Website Final Fixed Version
 
-This is the complete updated KaiRiOra website package, ready to upload to GitHub and deploy on Vercel.
+This package fixes the Vercel build issue by adding the correct TypeScript path alias configuration:
+
+```json
+"baseUrl": ".",
+"paths": {
+  "@/*": ["./*"]
+}
+```
 
 ## Included
 
-- Multilingual routes:
-  - English: `/en`
-  - French: `/fr`
-  - Dutch: `/nl`
-  - Spanish: `/es`
-  - Portuguese: `/pt`
-  - Russian: `/ru`
-
-- Main pages in every language:
+- Multilingual routes: `/en`, `/fr`, `/nl`, `/es`, `/pt`, `/ru`
+- Pages in every language:
   - Home
   - Salary Calculator
   - Employer Cost Calculator
   - Countries
-  - Individual Country Pages
-  - Comparison Page
+  - Country pages
+  - Comparison
   - AI Labour Law Assistant
   - Data & AI Consulting
-  - Contact / Quote Form
+  - Contact / Quote
+- Spain and Portugal priority positioning
+- Europe-wide coverage
+- Advanced salary calculator
+- Employer cost and KaiRiOra fee estimates
+- KaiRiOra vs Deel / Remote / Oyster / Papaya / Multiplier comparison table
+- Quote form
+- API placeholder for AI Labour Law Assistant
 
-- Business content:
-  - Payroll administration
-  - Contractor management
-  - Recruitment
-  - Staff augmentation
-  - Employer of Record support
-  - Workforce administration
-  - IT consulting
-  - Data consulting
-  - AI consulting
-  - AI training and workshops
+## Deploy
 
-- Positioning:
-  - Spain and Portugal are highlighted first
-  - Europe-wide country coverage
-  - Benefits of residency and favorable regimes where eligible
-  - Comparison against higher-tax EU countries
-  - KaiRiOra vs Deel / Remote / Oyster / Papaya / Multiplier table
-  - Easy access to individual quote form
+Upload all files to GitHub, then redeploy in Vercel.
 
-- Technical:
-  - Next.js
-  - React
-  - TypeScript
-  - Tailwind CSS
-  - Reusable calculator component
-  - API placeholder for AI Labour Law Assistant
-  - Vercel-ready
+## Important
 
-## Install locally
-
-```bash
-npm install
-npm run dev
-```
-
-Open:
-
-```bash
-http://localhost:3000/en
-```
-
-## Deploy on Vercel
-
-1. Upload files to GitHub repository.
-2. Go to Vercel.
-3. Click Add New Project.
-4. Import the GitHub repository.
-5. Framework should be detected as Next.js.
-6. Click Deploy.
-
-## Important Legal Disclaimer
-
-The salary calculator and country comparisons are demo/indicative only. Before using the site publicly as an official calculator, validate all tax, payroll, immigration and labour-law rules with qualified local experts.
+The tax/salary calculator is demo indicative logic. Validate with qualified tax, payroll, immigration and legal experts before going live.

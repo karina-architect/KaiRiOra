@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { calculateSalary, formatEUR } from "@/lib/calculator";
 import { countryNames } from "@/lib/content";
@@ -46,7 +47,7 @@ export default function SalaryCalculator() {
               </select>
             </label>
             <label className="text-sm font-bold">I am
-              <select className="input mt-2" value={employmentType} onChange={(e)=>setEmploymentType(e.target.value as any)}>
+              <select className="input mt-2" value={employmentType} onChange={(e)=>setEmploymentType(e.target.value as "employee" | "self-employed" | "company-owner")}>
                 <option value="employee">Employee</option>
                 <option value="self-employed">Self-employed</option>
                 <option value="company-owner">Company owner</option>
