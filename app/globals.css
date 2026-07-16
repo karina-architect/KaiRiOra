@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-navy: #0a1d3a;
+  --color-navy-700: #12294d;
+  --color-blue: #1558d6;
+  --color-blue-600: #1250c4;
+  --color-gold: #d4a24c;
+  --color-gold-600: #c08f3c;
+  --color-light: #f0f2f5;
+  --color-charcoal: #2a2e34;
+  --color-success: #087c4d;
+  --color-softblue: #eaf3ff;
+  --color-softgold: #fff8e8;
+
+  /* Semantic tokens */
+  --color-background: #ffffff;
+  --color-foreground: #2a2e34;
+  --color-muted: #f0f2f5;
+  --color-muted-foreground: #5b626c;
+  --color-border: #e3e7ee;
+  --color-primary: #1558d6;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #d4a24c;
+  --color-accent-foreground: #0a1d3a;
+
+  /* Fonts wired from next/font in layout.tsx */
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@utility font-heading {
+  font-family: var(--font-heading);
+}
