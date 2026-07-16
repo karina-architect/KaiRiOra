@@ -6,17 +6,38 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "test": "node -e \"console.log('No tests yet')\""
   },
   "dependencies": {
     "next": "16.2.10",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "eslint": "^9.19.0",
+    "eslint-config-next": "16.2.10",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "prettier": "^3.5.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix"
+    ],
+    "*.{js,jsx,ts,tsx,mjs,cjs,json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   }
 }
