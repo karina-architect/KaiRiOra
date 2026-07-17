@@ -20,7 +20,7 @@ export function SiteFooter({
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-6">
           <div className="lg:col-span-1">
-            <Logo className="h-8 w-auto" variant="light" />
+            <Logo className="h-8 w-auto" variant="dark" />
             <p className="mt-4 text-sm leading-relaxed text-primary-foreground/70">
               {dict.footer.description}
             </p>
