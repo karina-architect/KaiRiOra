@@ -6,6 +6,7 @@ import { locales, isLocale, type Locale, SITE_URL, SITE_NAME } from "@/lib/i18n/
 import { getDictionary } from "@/lib/i18n"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { StructuredData } from "@/components/structured-data"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -66,7 +67,7 @@ export async function generateMetadata({
       icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
       shortcut: "/favicon.ico",
     },
-    manifest: "/site.webmanifest",
+    manifest: "/manifest.webmanifest",
   }
 }
 
@@ -96,6 +97,7 @@ export default async function LocaleLayout({
         >
           {dict.common.skipToContent}
         </a>
+        <StructuredData locale={locale} />
         <SiteHeader locale={locale} dict={dict} />
         <main id="main">{children}</main>
         <SiteFooter locale={locale} dict={dict} />

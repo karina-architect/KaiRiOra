@@ -2,7 +2,7 @@ import "server-only"
 import type { Locale } from "./config"
 import type { Dictionary } from "./dictionaries/en"
 
-const dictionaries: Record<Locale, () => Promise<{ default: Dictionary }>> = {
+const dictionaries: Record<Locale, () => Promise<{ default: unknown }>> = {
   en: () => import("./dictionaries/en"),
   es: () => import("./dictionaries/es"),
   pt: () => import("./dictionaries/pt"),
@@ -15,7 +15,7 @@ const dictionaries: Record<Locale, () => Promise<{ default: Dictionary }>> = {
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
   const load = dictionaries[locale] ?? dictionaries.en
   const mod = await load()
-  return mod.default
+  return mod.default as Dictionary
 }
 
 export type { Dictionary } from "./dictionaries/en"
