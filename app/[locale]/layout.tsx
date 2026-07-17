@@ -64,8 +64,12 @@ export async function generateMetadata({
       images: ["/og-image.png"],
     },
     icons: {
-      icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-      shortcut: "/favicon.ico",
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      ],
+      shortcut: "/icon.png",
+      apple: "/icon.png",
     },
     manifest: "/manifest.webmanifest",
   }
