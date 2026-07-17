@@ -15,7 +15,7 @@ export function WhySection({ locale, dict }: { locale: Locale; dict: Dictionary 
   ]
 
   return (
-    <section className="bg-navy text-white">
+    <section id="about" className="scroll-mt-28 bg-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <h2 className="text-balance font-heading text-2xl font-bold sm:text-3xl">{w.heading}</h2>
         <p className="mt-2 max-w-2xl text-pretty text-sm text-white/70">{w.subheading}</p>

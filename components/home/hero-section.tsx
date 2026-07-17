@@ -4,11 +4,13 @@ import { Check, ArrowRight, Users, Building2, ShieldCheck, ShieldQuestion } from
 import { localizedPath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
+import { getHero } from "@/lib/site-content"
 
 const whyIcons = [Users, Building2, ShieldCheck]
 
 export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.hero
+  const hero = getHero(locale)
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -16,20 +18,17 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
         {/* Left: copy */}
         <div className="lg:col-span-6">
           <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
-            {h.titleLine1}
+            {hero.line1}
             <br />
-            {h.titleLine2}
-            <br />
-            {h.titleLine3Prefix}
-            <span className="text-gold">{h.titleLine3Highlight}</span>
+            <span className="text-blue">{hero.line2}</span>
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
-            {h.paragraph}
+            {hero.paragraph}
           </p>
 
           <ul className="mt-6 grid max-w-xl gap-x-6 gap-y-2.5 sm:grid-cols-2">
-            {h.bullets.map((b) => (
-              <li key={b} className="flex items-start gap-2 text-sm text-foreground/80">
+            {hero.pillars.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-sm font-medium text-foreground/80">
                 <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-softgreen text-green-600">
                   <Check className="h-3 w-3" aria-hidden />
                 </span>
@@ -40,23 +39,17 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href={localizedPath(locale, "/contact")}
+              href={localizedPath(locale, "/#core-services")}
               className="inline-flex items-center gap-2 rounded-md bg-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-600"
             >
-              {h.requestAssessment}
+              {hero.ctaPrimary}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
             <Link
-              href={localizedPath(locale, "/tools/salary-calculator")}
+              href={localizedPath(locale, "/contact")}
               className="inline-flex items-center rounded-md border border-blue/30 bg-white px-5 py-2.5 text-sm font-semibold text-blue transition-colors hover:bg-softblue"
             >
-              {h.salaryCalculator}
-            </Link>
-            <Link
-              href={localizedPath(locale, "/tools/ai-assistant")}
-              className="inline-flex items-center rounded-md border border-border bg-white px-5 py-2.5 text-sm font-semibold text-charcoal transition-colors hover:bg-muted"
-            >
-              {h.askAi}
+              {hero.ctaSecondary}
             </Link>
           </div>
 
