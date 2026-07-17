@@ -11,8 +11,8 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
   const h = dict.hero
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-softblue/60 to-background">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:py-20">
+    <section className="relative overflow-hidden bg-background">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-28">
         {/* Left: copy */}
         <div className="lg:col-span-6">
           <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
