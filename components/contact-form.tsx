@@ -76,7 +76,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
         role="status"
         className="flex flex-col items-center gap-3 rounded-xl border border-border bg-white p-10 text-center shadow-sm"
       >
-        <CheckCircle2 className="h-12 w-12 text-success" aria-hidden="true" />
+        <CheckCircle2 className="h-12 w-12 text-green-600" aria-hidden="true" />
         <h2 className="font-heading text-xl font-bold text-charcoal">{c.successTitle}</h2>
         <p className="max-w-md text-pretty leading-relaxed text-muted-foreground">{c.successMsg}</p>
       </div>

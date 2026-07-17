@@ -30,7 +30,9 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
           <ul className="mt-6 grid max-w-xl gap-x-6 gap-y-2.5 sm:grid-cols-2">
             {h.bullets.map((b) => (
               <li key={b} className="flex items-start gap-2 text-sm text-foreground/80">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue" aria-hidden />
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-softgreen text-green-600">
+                  <Check className="h-3 w-3" aria-hidden />
+                </span>
                 {b}
               </li>
             ))}

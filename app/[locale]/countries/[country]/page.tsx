@@ -92,7 +92,7 @@ export default async function CountryPage({
             <ul className="grid gap-2 sm:grid-cols-2">
               {data.checklist.map((item, i) => (
                 <li key={i} className="flex items-center gap-2 text-sm text-charcoal">
-                  <Check className="h-4 w-4 shrink-0 text-success" aria-hidden="true" />
+                  <Check className="h-4 w-4 shrink-0 text-green-600" aria-hidden="true" />
                   {item}
                 </li>
               ))}

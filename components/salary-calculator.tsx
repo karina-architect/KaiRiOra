@@ -200,7 +200,7 @@ export function SalaryCalculator({ dict }: { dict: Dictionary }) {
                   <p
                     className={
                       cmp.diff >= 0
-                        ? "text-sm font-semibold text-success"
+                        ? "text-sm font-semibold text-green-600"
                         : "text-sm font-semibold text-gold-600"
                     }
                   >
@@ -243,7 +243,7 @@ function ResultCard({
   tone: "success" | "gold" | "blue"
 }) {
   const toneClass =
-    tone === "success" ? "text-success" : tone === "gold" ? "text-gold-600" : "text-blue"
+    tone === "success" ? "text-green-600" : tone === "gold" ? "text-gold-600" : "text-blue"
   return (
     <div className="rounded-lg border border-border bg-background p-3 text-center">
       <p className="text-[11px] leading-tight text-muted-foreground">{label}</p>

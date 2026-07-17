@@ -11,8 +11,11 @@
   --color-light: #f0f2f5;
   --color-charcoal: #2a2e34;
   --color-success: #087c4d;
+  --color-green: #91c353;
+  --color-green-600: #7cae42;
   --color-softblue: #eaf3ff;
   --color-softgold: #fff8e8;
+  --color-softgreen: #f2f8e9;
 
   /* Brand palette — brand-prefixed aliases (used across components) */
   --color-brand-navy: #0a1d3a;
