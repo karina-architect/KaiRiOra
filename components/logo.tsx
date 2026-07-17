@@ -7,56 +7,25 @@ interface LogoProps {
 }
 
 /**
- * KaiRiOra "KRo" monogram: a bold K whose upper arm sweeps up in a navy→blue
- * gradient, resolving into a gold "o" ring at the lower right.
- * "light" is for light backgrounds (navy strokes); "dark" is for navy
- * backgrounds (white strokes). The gold accent is constant in both.
+ * KaiRiOra "KRo" monogram, cropped directly from the official brand artwork
+ * (public/kairiora-logo.png) via a CSS sprite crop so it always matches the
+ * guidelines exactly. `mix-blend-multiply` drops the light artwork backing so
+ * the mark sits cleanly on white (header) or on a white chip (dark footer).
  */
-export function LogoMark({
-  variant = "light",
-  className,
-}: {
-  variant?: "light" | "dark"
-  className?: string
-}) {
-  const isDark = variant === "dark"
-  const stroke = isDark ? "#ffffff" : "#0a1d3a"
-  const gradId = `kro-sweep-${variant}`
-  const sweepStart = isDark ? "#ffffff" : "#0a1d3a"
-  const sweepEnd = isDark ? "#5b93f6" : "#1558d6"
-
+export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 64 64"
-      className={cn("h-9 w-9", className)}
+    <span
       role="img"
       aria-label="KaiRiOra"
-      fill="none"
-    >
-      <defs>
-        <linearGradient id={gradId} x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor={sweepStart} />
-          <stop offset="1" stopColor={sweepEnd} />
-        </linearGradient>
-      </defs>
-
-      {/* K spine */}
-      <path d="M14 9V55" stroke={stroke} strokeWidth="6" strokeLinecap="round" />
-
-      {/* Upper arm — tall elegant sweep in the navy→blue gradient */}
-      <path
-        d="M14 33C25 27 35 19 41 7"
-        stroke={`url(#${gradId})`}
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-
-      {/* Lower arm flowing toward the gold o */}
-      <path d="M14 33L31 51" stroke={stroke} strokeWidth="6" strokeLinecap="round" />
-
-      {/* Gold "o" ring */}
-      <circle cx="45" cy="46" r="9" stroke="#d4a24c" strokeWidth="5" />
-    </svg>
+      className={cn("block h-9 mix-blend-multiply", className)}
+      style={{
+        aspectRatio: "1.23 / 1",
+        backgroundImage: "url(/kairiora-logo.png)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "297%",
+        backgroundPosition: "50% 27%",
+      }}
+    />
   )
 }
 
@@ -64,7 +33,13 @@ export function Logo({ variant = "light", showTagline = true, className }: LogoP
   const isDark = variant === "dark"
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
-      <LogoMark variant={variant} />
+      {isDark ? (
+        <span className="flex items-center justify-center rounded-md bg-white p-1">
+          <LogoMark className="h-7" />
+        </span>
+      ) : (
+        <LogoMark className="h-8" />
+      )}
       <span className="flex flex-col leading-none">
         <span className="font-heading text-xl font-bold tracking-tight">
           <span className={isDark ? "text-white" : "text-navy"}>Kai</span>
