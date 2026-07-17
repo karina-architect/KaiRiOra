@@ -30,7 +30,8 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip Next internals, api routes and files with an extension
-    "/((?!api|_next/static|_next/image|favicon.ico|icon.svg|og-image.png|robots.txt|sitemap.xml|site.webmanifest).*)",
+    // Skip Next internals, API routes, and any path that contains a dot
+    // (static files in /public such as .png, .svg, .ico, .xml, .webmanifest).
+    "/((?!api|_next/static|_next/image|.*\\..*).*)",
   ],
 }
