@@ -1,10 +1,13 @@
 import type { Locale } from "./config"
 
-/** Builds a locale-prefixed path, e.g. localePath("es", "/countries") => "/es/countries". */
-export function localePath(locale: Locale, path = "/"): string {
+/** Builds a locale-prefixed path, e.g. localizedPath("es", "/countries") => "/es/countries". */
+export function localizedPath(locale: Locale, path = "/"): string {
   const clean = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`
   return `/${locale}${clean}`
 }
+
+/** Backwards-compatible alias. */
+export const localePath = localizedPath
 
 /** Swaps the leading locale segment of a pathname to a new locale, preserving the rest. */
 export function switchLocalePath(

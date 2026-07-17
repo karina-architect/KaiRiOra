@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils"
 
 export function LanguageSwitcher({
   locale,
-  tone = "light",
+  variant = "light",
 }: {
   locale: Locale
-  tone?: "light" | "dark"
+  variant?: "light" | "dark"
 }) {
   const pathname = usePathname() || `/${locale}`
   const [open, setOpen] = useState(false)
@@ -36,7 +36,7 @@ export function LanguageSwitcher({
         aria-label="Select language"
         className={cn(
           "flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold transition-colors",
-          tone === "dark"
+          variant === "dark"
             ? "text-white/80 hover:text-white"
             : "text-charcoal hover:text-blue",
         )}
