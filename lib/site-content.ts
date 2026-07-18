@@ -214,6 +214,30 @@ const resourceChildren: NavLeaf[] = [
   { label: "FAQs", href: "/tools/ai-assistant" },
 ]
 
+/**
+ * Simplified, always-visible primary navigation: the three core services
+ * (each links directly to its service page) plus Contact. No dropdowns.
+ */
+export function getPrimaryNav(locale: Locale): NavLeaf[] {
+  return [
+    { label: t(locale, groupTitles.payroll), href: "/#core-services" },
+    { label: t(locale, groupTitles.dataAi), href: "/services/data-ai-adoption" },
+    {
+      label: t(locale, {
+        en: "Agile Transformation Services",
+        es: "Servicios de Transformación Ágil",
+        pt: "Serviços de Transformação Ágil",
+        fr: "Services de Transformation Agile",
+        de: "Agile Transformation Services",
+        ru: "Услуги Agile-трансформации",
+        hu: "Agilis átalakulási szolgáltatások",
+      }),
+      href: "/#core-services",
+    },
+    { label: t(locale, navLabels.contact), href: "/contact" },
+  ]
+}
+
 export interface NavContent {
   items: NavNode[]
   login: string
@@ -430,6 +454,135 @@ export function getCoreServices(locale: Locale): CoreContent {
           "Product & Delivery Management",
           "Change Management & Team Enablement",
         ],
+      },
+    ],
+  }
+}
+
+export type DataAiIcon =
+  | "strategy"
+  | "readiness"
+  | "dataStrategy"
+  | "governance"
+  | "engineering"
+  | "analytics"
+  | "automation"
+  | "training"
+
+export interface DataAiService {
+  icon: DataAiIcon
+  title: string
+  desc: string
+}
+
+export interface DataAiPageContent {
+  title: string
+  hero: string
+  supporting: string
+  ctaPrimary: string
+  ctaSecondary: string
+  sectionHeading: string
+  learnMore: string
+  services: DataAiService[]
+}
+
+export function getDataAiPage(locale: Locale): DataAiPageContent {
+  return {
+    title: t(locale, groupTitles.dataAi),
+    hero: t(locale, {
+      en: "Turn data into practical business value and adopt artificial intelligence with a clear, responsible and scalable approach.",
+      es: "Convierta los datos en valor empresarial práctico y adopte la inteligencia artificial con un enfoque claro, responsable y escalable.",
+      pt: "Transforme dados em valor prático para o negócio e adote inteligência artificial com uma abordagem clara, responsável e escalável.",
+      fr: "Transformez vos données en valeur concrète et adoptez l'intelligence artificielle avec une approche claire, responsable et évolutive.",
+      de: "Verwandeln Sie Daten in praktischen Geschäftswert und führen Sie künstliche Intelligenz mit einem klaren, verantwortungsvollen und skalierbaren Ansatz ein.",
+      ru: "Превратите данные в практическую ценность для бизнеса и внедряйте искусственный интеллект с чётким, ответственным и масштабируемым подходом.",
+      hu: "Alakítsa az adatokat gyakorlati üzleti értékké, és vezesse be a mesterséges intelligenciát világos, felelős és skálázható megközelítéssel.",
+    }),
+    supporting: t(locale, {
+      en: "KaiRiOra helps organisations define their data and AI strategy, modernise data platforms, improve governance, automate processes and build the capabilities required for successful AI adoption.",
+      es: "KaiRiOra ayuda a las organizaciones a definir su estrategia de datos e IA, modernizar plataformas de datos, mejorar la gobernanza, automatizar procesos y desarrollar las capacidades necesarias para una adopción exitosa de la IA.",
+      pt: "A KaiRiOra ajuda as organizações a definir a sua estratégia de dados e IA, modernizar plataformas de dados, melhorar a governança, automatizar processos e desenvolver as capacidades necessárias para uma adoção bem-sucedida da IA.",
+      fr: "KaiRiOra aide les organisations à définir leur stratégie data et IA, à moderniser leurs plateformes de données, à améliorer la gouvernance, à automatiser les processus et à développer les compétences nécessaires à une adoption réussie de l'IA.",
+      de: "KaiRiOra unterstützt Organisationen dabei, ihre Daten- und KI-Strategie zu definieren, Datenplattformen zu modernisieren, Governance zu verbessern, Prozesse zu automatisieren und die für eine erfolgreiche KI-Einführung erforderlichen Fähigkeiten aufzubauen.",
+      ru: "KaiRiOra помогает организациям определить стратегию данных и ИИ, модернизировать платформы данных, улучшить управление, автоматизировать процессы и развить возможности, необходимые для успешного внедрения ИИ.",
+      hu: "A KaiRiOra segít a szervezeteknek meghatározni adat- és MI-stratégiájukat, korszerűsíteni az adatplatformokat, javítani az irányítást, automatizálni a folyamatokat és kiépíteni a sikeres MI-bevezetéshez szükséges képességeket.",
+    }),
+    ctaPrimary: t(locale, {
+      en: "Book a Consultation",
+      es: "Reservar consulta",
+      pt: "Agendar consulta",
+      fr: "Réserver une consultation",
+      de: "Beratung buchen",
+      ru: "Записаться на консультацию",
+      hu: "Konzultáció foglalása",
+    }),
+    ctaSecondary: t(locale, {
+      en: "Contact Us",
+      es: "Contáctenos",
+      pt: "Fale connosco",
+      fr: "Nous contacter",
+      de: "Kontakt aufnehmen",
+      ru: "Связаться с нами",
+      hu: "Kapcsolatfelvétel",
+    }),
+    sectionHeading: t(locale, {
+      en: "Our Data & AI Adoption Services",
+      es: "Nuestros servicios de adopción de datos e IA",
+      pt: "Os nossos serviços de adoção de dados e IA",
+      fr: "Nos services d'adoption Data & IA",
+      de: "Unsere Services zur Daten- & KI-Einführung",
+      ru: "Наши услуги по внедрению данных и ИИ",
+      hu: "Adat- és MI-bevezetési szolgáltatásaink",
+    }),
+    learnMore: t(locale, {
+      en: "Learn more",
+      es: "Saber más",
+      pt: "Saiba mais",
+      fr: "En savoir plus",
+      de: "Mehr erfahren",
+      ru: "Подробнее",
+      hu: "Tudjon meg többet",
+    }),
+    services: [
+      {
+        icon: "strategy",
+        title: "AI Strategy",
+        desc: "Define a practical AI roadmap aligned with business priorities, available data, organisational readiness and measurable outcomes.",
+      },
+      {
+        icon: "readiness",
+        title: "AI Readiness Assessment",
+        desc: "Assess data quality, technology, governance, skills, processes and operating models to identify the organisation's readiness for AI adoption.",
+      },
+      {
+        icon: "dataStrategy",
+        title: "Data Strategy",
+        desc: "Create a clear data strategy covering business objectives, target architecture, governance, analytics priorities and implementation planning.",
+      },
+      {
+        icon: "governance",
+        title: "Data Governance",
+        desc: "Establish ownership, policies, standards, data quality controls, metadata management and responsible data usage across the organisation.",
+      },
+      {
+        icon: "engineering",
+        title: "Data Engineering",
+        desc: "Design and build reliable data pipelines, integrations, lakehouses, warehouses and modern cloud-based data platforms.",
+      },
+      {
+        icon: "analytics",
+        title: "Business Intelligence & Analytics",
+        desc: "Transform business data into useful dashboards, reports, performance indicators and decision-support insights.",
+      },
+      {
+        icon: "automation",
+        title: "AI Automation",
+        desc: "Identify and implement AI-powered workflow automation, document processing, intelligent assistants and operational efficiency solutions.",
+      },
+      {
+        icon: "training",
+        title: "AI Training & Workshops",
+        desc: "Deliver practical training, executive briefings and hands-on workshops covering AI fundamentals, generative AI, data literacy and business use cases.",
       },
     ],
   }
