@@ -10,15 +10,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
-  return getServiceMetadata("data-ai-adoption", loc)
+  return getServiceMetadata("workforce-business", loc)
 }
 
-export default async function DataAiAdoptionPage({
+export default async function WorkforceBusinessPage({
   params,
 }: {
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
   const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
-  return <ServicePage locale={loc} content={getServicePage("data-ai-adoption", loc)} />
+  return <ServicePage locale={loc} content={getServicePage("workforce-business", loc)} />
 }

@@ -5,6 +5,9 @@ import { countries } from "@/lib/countries"
 const staticPaths = [
   "",
   "/contact",
+  "/services/workforce-business",
+  "/services/data-ai-adoption",
+  "/services/agile-transformation",
   "/countries",
   "/tools/salary-calculator",
   "/tools/ai-assistant",

@@ -2,6 +2,7 @@ import { isLocale, type Locale } from "@/lib/i18n/config"
 import { getDictionary } from "@/lib/i18n"
 import { HeroSection } from "@/components/home/hero-section"
 import { CoreServices } from "@/components/home/core-services"
+import { WhyKaiRiOra } from "@/components/why-kairiora"
 import { StatsSection } from "@/components/home/stats-section"
 import { TrustStrip } from "@/components/home/trust-strip"
 import { ToolsSection } from "@/components/home/tools-section"
@@ -22,6 +23,7 @@ export default async function HomePage({
     <>
       <HeroSection locale={loc} dict={dict} />
       <CoreServices locale={loc} />
+      <WhyKaiRiOra locale={loc} />
       <StatsSection locale={loc} />
       <TrustStrip dict={dict} />
       <ToolsSection dict={dict} />

@@ -114,6 +114,15 @@ const navLabels = {
 
 /** Dropdown group titles (translated, full brand names). */
 const groupTitles = {
+  workforce: {
+    en: "Workforce & Business Services",
+    es: "Servicios Laborales y Empresariales",
+    pt: "Serviços de Força de Trabalho e Negócios",
+    fr: "Services RH & Entreprise",
+    de: "Personal- & Unternehmensdienste",
+    ru: "Кадровые и бизнес-услуги",
+    hu: "Munkaerő- és üzleti szolgáltatások",
+  },
   payroll: {
     en: "Payroll & Employment Services",
     es: "Nómina y Servicios de Empleo",
@@ -160,6 +169,16 @@ const groupTitles = {
     hu: "Erőforrások",
   },
 } satisfies Record<string, Localized>
+
+const learnMoreLabel: Localized = {
+  en: "Learn More",
+  es: "Saber más",
+  pt: "Saiba mais",
+  fr: "En savoir plus",
+  de: "Mehr erfahren",
+  ru: "Подробнее",
+  hu: "Tudjon meg többet",
+}
 
 const CORE = "/#core-services"
 
@@ -220,20 +239,9 @@ const resourceChildren: NavLeaf[] = [
  */
 export function getPrimaryNav(locale: Locale): NavLeaf[] {
   return [
-    { label: t(locale, groupTitles.payroll), href: "/#core-services" },
+    { label: t(locale, groupTitles.workforce), href: "/services/workforce-business" },
     { label: t(locale, groupTitles.dataAi), href: "/services/data-ai-adoption" },
-    {
-      label: t(locale, {
-        en: "Agile Transformation Services",
-        es: "Servicios de Transformación Ágil",
-        pt: "Serviços de Transformação Ágil",
-        fr: "Services de Transformation Agile",
-        de: "Agile Transformation Services",
-        ru: "Услуги Agile-трансформации",
-        hu: "Agilis átalakulási szolgáltatások",
-      }),
-      href: "/#core-services",
-    },
+    { label: t(locale, groupTitles.agile), href: "/services/agile-transformation" },
     { label: t(locale, navLabels.contact), href: "/contact" },
   ]
 }
@@ -323,13 +331,13 @@ export function getHero(locale: Locale): HeroContent {
       hu: "Egy megbízható partner az európai üzleti növekedéshez.",
     }),
     paragraph: t(locale, {
-      en: "KaiRiOra helps businesses grow through Payroll & Employment Services, Data & AI Adoption, and Agile Transformation, delivering practical workforce, technology and transformation solutions across Europe.",
-      es: "KaiRiOra ayuda a las empresas a crecer mediante Nómina y Servicios de Empleo, Adopción de Datos e IA y Transformación Ágil, ofreciendo soluciones prácticas de personal, tecnología y transformación en toda Europa.",
-      pt: "A KaiRiOra ajuda as empresas a crescer através de Folha de Pagamento e Emprego, Adoção de Dados e IA e Transformação Ágil, oferecendo soluções práticas de força de trabalho, tecnologia e transformação em toda a Europa.",
-      fr: "KaiRiOra aide les entreprises à croître grâce à la Paie et aux Services d'Emploi, à l'Adoption des Données et de l'IA et à la Transformation Agile, en proposant des solutions concrètes de main-d'œuvre, de technologie et de transformation à travers l'Europe.",
-      de: "KaiRiOra unterstützt Unternehmen beim Wachstum durch Payroll- & Personaldienste, Daten- & KI-Einführung und Agile Transformation – mit praxisnahen Lösungen für Personal, Technologie und Transformation in ganz Europa.",
-      ru: "KaiRiOra помогает компаниям расти с помощью услуг по расчёту зарплаты и найму, внедрению данных и ИИ и Agile-трансформации, предоставляя практичные решения для персонала, технологий и преобразований по всей Европе.",
-      hu: "A KaiRiOra a bérszámfejtés és foglalkoztatás, az adat- és MI-bevezetés, valamint az agilis átalakulás révén segíti a vállalatok növekedését, gyakorlati munkaerő-, technológiai és átalakulási megoldásokat nyújtva Európa-szerte.",
+      en: "KaiRiOra helps organisations grow through Workforce & Business Services, Data & AI Adoption and Agile Transformation, delivering practical business solutions across Europe.",
+      es: "KaiRiOra ayuda a las organizaciones a crecer mediante Servicios Laborales y Empresariales, Adopción de Datos e IA y Transformación Ágil, ofreciendo soluciones empresariales prácticas en toda Europa.",
+      pt: "A KaiRiOra ajuda as organizações a crescer através de Serviços de Força de Trabalho e Negócios, Adoção de Dados e IA e Transformação Ágil, oferecendo soluções empresariais práticas em toda a Europa.",
+      fr: "KaiRiOra aide les organisations à croître grâce aux Services RH & Entreprise, à l'Adoption des Données et de l'IA et à la Transformation Agile, en proposant des solutions concrètes à travers l'Europe.",
+      de: "KaiRiOra unterstützt Organisationen beim Wachstum durch Personal- & Unternehmensdienste, Daten- & KI-Einführung und Agile Transformation – mit praxisnahen Geschäftslösungen in ganz Europa.",
+      ru: "KaiRiOra помогает организациям расти с помощью кадровых и бизнес-услуг, внедрения данных и ИИ и Agile-трансформации, предоставляя практичные бизнес-решения по всей Европе.",
+      hu: "A KaiRiOra a munkaerő- és üzleti szolgáltatások, az adat- és MI-bevezetés, valamint az agilis átalakulás révén segíti a szervezetek növekedését, gyakorlati üzleti megoldásokat nyújtva Európa-szerte.",
     }),
     ctaPrimary: t(locale, {
       en: "Explore Our Services",
@@ -350,7 +358,7 @@ export function getHero(locale: Locale): HeroContent {
       hu: "Konzultáció foglalása",
     }),
     pillars: [
-      t(locale, groupTitles.payroll),
+      t(locale, groupTitles.workforce),
       t(locale, groupTitles.dataAi),
       t(locale, groupTitles.agile),
     ],
@@ -393,41 +401,25 @@ export function getCoreServices(locale: Locale): CoreContent {
     }),
     cards: [
       {
-        title: t(locale, groupTitles.payroll),
-        desc: "Helping businesses hire, manage and pay employees and contractors across Europe through Payroll Administration, Employer of Record (EOR), Contractor Management, Recruitment, Staff Augmentation and Work & Residence Permit Support.",
-        button: t(locale, {
-          en: "Explore Payroll Services",
-          es: "Explorar servicios de nómina",
-          pt: "Explorar serviços de folha",
-          fr: "Découvrir la paie",
-          de: "Payroll-Services entdecken",
-          ru: "Услуги по зарплате",
-          hu: "Bérszámfejtés",
-        }),
-        href: "/#services",
+        title: t(locale, groupTitles.workforce),
+        desc: "Payroll, Employer of Record, Accounting, HR, Recruitment, Staff Augmentation, Contractor Management and Workforce Administration.",
+        button: t(locale, learnMoreLabel),
+        href: "/services/workforce-business",
         items: [
-          "Payroll Administration",
-          "Employer of Record (EOR)",
+          "Payroll Administration & EOR",
+          "Accounting & Bookkeeping",
           "Contractor Management",
           "Recruitment & Staff Augmentation",
-          "Work & Residence Permit Support",
+          "HR & Work Permit Support",
         ],
       },
       {
         title: t(locale, groupTitles.dataAi),
-        desc: "Helping organisations define their data strategy, build modern data platforms, adopt AI responsibly and automate business processes through Data Strategy, Data Engineering, Data Governance, Analytics, AI Consulting and AI Training.",
-        button: t(locale, {
-          en: "Explore Data & AI",
-          es: "Explorar Datos e IA",
-          pt: "Explorar Dados e IA",
-          fr: "Découvrir Data & IA",
-          de: "Daten & KI entdecken",
-          ru: "Данные и ИИ",
-          hu: "Adat & MI",
-        }),
-        href: "/#services",
+        desc: "AI Strategy, Data Strategy, Data Governance, Data Engineering, Analytics, AI Automation and AI Training.",
+        button: t(locale, learnMoreLabel),
+        href: "/services/data-ai-adoption",
         items: [
-          "Data & AI Strategy",
+          "AI & Data Strategy",
           "Data Engineering & Platforms",
           "Data Governance",
           "BI & Analytics",
@@ -436,17 +428,9 @@ export function getCoreServices(locale: Locale): CoreContent {
       },
       {
         title: t(locale, groupTitles.agile),
-        desc: "Helping organisations improve business delivery through Agile Coaching, Scrum & Kanban, PMO Transformation, Product Management, Delivery Management, Change Management and Team Enablement.",
-        button: t(locale, {
-          en: "Explore Agile Services",
-          es: "Explorar servicios ágiles",
-          pt: "Explorar serviços ágeis",
-          fr: "Découvrir l'agilité",
-          de: "Agile Services entdecken",
-          ru: "Agile-услуги",
-          hu: "Agilis szolgáltatások",
-        }),
-        href: "/#services",
+        desc: "Agile Coaching, Scrum, PMO Transformation, Delivery Management, Product Management and Change Management.",
+        button: t(locale, learnMoreLabel),
+        href: "/services/agile-transformation",
         items: [
           "Agile Coaching",
           "Scrum & Kanban",
