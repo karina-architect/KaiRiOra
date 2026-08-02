@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { isEmailConfigured, sendAutoReply, sendEnquiryNotification, type Enquiry } from "@/lib/email"
 
 interface ContactPayload {
   name?: string
@@ -31,17 +32,35 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 422 })
   }
 
-  // In production this would persist to a database and/or notify the team.
-  // For now we log the sanitised request server-side and acknowledge receipt.
-  console.log("[v0] contact request received:", {
-    name: body.name?.trim(),
-    email: body.email?.trim(),
-    currentCountry: body.currentCountry,
-    targetCountry: body.targetCountry,
-    arrangement: body.arrangement,
-    services: body.services,
-    hasMessage: Boolean(body.message?.trim()),
-  })
+  const enquiry: Enquiry = {
+    name: body.name!.trim(),
+    email: body.email!.trim(),
+    currentCountry: body.currentCountry?.trim() || undefined,
+    targetCountry: body.targetCountry?.trim() || undefined,
+    arrangement: body.arrangement?.trim() || undefined,
+    services: body.services?.length ? body.services : undefined,
+    message: body.message?.trim() || undefined,
+  }
+
+  if (!isEmailConfigured()) {
+    console.error("[v0] contact: SMTP is not configured (missing SMTP_USER / SMTP_PASS)")
+    return NextResponse.json({ ok: false, error: "email_not_configured" }, { status: 503 })
+  }
+
+  // The notification to KaiRiOra must succeed for the submission to count.
+  try {
+    await sendEnquiryNotification(enquiry)
+  } catch (error) {
+    console.error("[v0] contact: failed to send notification:", error)
+    return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 })
+  }
+
+  // The auto-reply is best-effort: never fail the submission because of it.
+  try {
+    await sendAutoReply(enquiry)
+  } catch (error) {
+    console.error("[v0] contact: failed to send auto-reply:", error)
+  }
 
   return NextResponse.json({ ok: true })
 }
