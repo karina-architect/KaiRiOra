@@ -1,53 +1,37 @@
-import nodemailer from "nodemailer"
+import { Resend } from "resend"
 
 /**
- * SMTP transport.
+ * Transactional email via Resend.
  *
- * Defaults target Microsoft Outlook/Hotmail, but any SMTP provider works by
- * overriding SMTP_HOST / SMTP_PORT (e.g. a kairiora.com mailbox at your
- * domain host, which is what allows a real noreply@kairiora.com sender).
+ * Enquiries submitted on the website are delivered to CONTACT_TO
+ * (chkarina@hotmail.com) and sent *from* a kairiora.com address so replies and
+ * branding stay on the business domain.
  *
  * Required env vars:
- *   SMTP_USER  - full mailbox address used to authenticate
- *   SMTP_PASS  - app password (NOT the normal account password)
+ *   RESEND_API_KEY - API key from resend.com/api-keys
  * Optional:
- *   SMTP_HOST  - default smtp-mail.outlook.com
- *   SMTP_PORT  - default 587 (STARTTLS)
- *   SMTP_FROM  - sender address; must be the authenticated mailbox or a
- *                verified alias of it, otherwise the provider rejects the send
- *   CONTACT_TO - inbox that receives enquiries (default SMTP_USER)
+ *   EMAIL_FROM  - sender address (default consult@kairiora.com). The domain
+ *                 must be verified in Resend before this address can be used.
+ *   CONTACT_TO  - inbox that receives enquiries (default chkarina@hotmail.com)
  */
 
-const SMTP_HOST = process.env.SMTP_HOST ?? "smtp-mail.outlook.com"
-const SMTP_PORT = Number(process.env.SMTP_PORT ?? 587)
-const SMTP_USER = process.env.SMTP_USER
-const SMTP_PASS = process.env.SMTP_PASS
+const RESEND_API_KEY = process.env.RESEND_API_KEY
 
 /** Where enquiries are delivered. */
-export const CONTACT_TO = process.env.CONTACT_TO ?? SMTP_USER ?? ""
+export const CONTACT_TO = process.env.CONTACT_TO ?? "chkarina@hotmail.com"
 
-/**
- * Envelope sender. Falls back to the authenticated mailbox because most
- * providers (Outlook included) refuse to send as an unrelated address.
- */
-const FROM_ADDRESS = process.env.SMTP_FROM ?? SMTP_USER ?? ""
-const FROM = `"KaiRiOra Website" <${FROM_ADDRESS}>`
+/** Business sender address. Requires a verified domain in Resend. */
+const FROM_ADDRESS = process.env.EMAIL_FROM ?? "consult@kairiora.com"
+const FROM = `KaiRiOra <${FROM_ADDRESS}>`
 
 export function isEmailConfigured() {
-  return Boolean(SMTP_USER && SMTP_PASS)
+  return Boolean(RESEND_API_KEY)
 }
 
-let cached: nodemailer.Transporter | null = null
+let cached: Resend | null = null
 
-function getTransporter() {
-  if (!cached) {
-    cached = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: SMTP_PORT === 465,
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
-    })
-  }
+function getResend() {
+  if (!cached) cached = new Resend(RESEND_API_KEY)
   return cached
 }
 
@@ -122,10 +106,10 @@ export async function sendEnquiryNotification(e: Enquiry) {
     <p style="margin:22px 0 0;font-size:13px;color:#6b7280;">Reply directly to this email to respond to ${esc(e.name)}.</p>`,
   )
 
-  return getTransporter().sendMail({
+  const { error } = await getResend().emails.send({
     from: FROM,
-    to: CONTACT_TO,
-    replyTo: `"${e.name}" <${e.email}>`,
+    to: [CONTACT_TO],
+    replyTo: `${e.name} <${e.email}>`,
     subject: `New enquiry: ${e.name}${e.targetCountry ? ` - ${e.targetCountry}` : ""}`,
     html,
     text: [
@@ -140,6 +124,8 @@ export async function sendEnquiryNotification(e: Enquiry) {
       .filter(Boolean)
       .join("\n"),
   })
+
+  if (error) throw new Error(`${error.name}: ${error.message}`)
 }
 
 /** Branded confirmation sent to the person who submitted the form. */
@@ -160,16 +146,16 @@ export async function sendAutoReply(e: Enquiry) {
          : ""
      }
      <p style="margin:0 0 14px;font-size:14px;line-height:1.6;">
-       In the meantime, you are welcome to explore our services across payroll and employment,
-       data and AI adoption, and agile transformation.
+       In the meantime, you are welcome to explore our services across workforce and business
+       services, data and AI adoption, and agile transformation.
      </p>
      <p style="margin:22px 0 0;font-size:14px;">Kind regards,<br /><strong>The KaiRiOra Team</strong></p>`,
   )
 
-  return getTransporter().sendMail({
+  const { error } = await getResend().emails.send({
     from: FROM,
-    to: e.email,
-    replyTo: CONTACT_TO,
+    to: [e.email],
+    replyTo: FROM_ADDRESS,
     subject: "We have received your enquiry - KaiRiOra",
     html,
     text:
@@ -179,4 +165,6 @@ export async function sendAutoReply(e: Enquiry) {
       (e.message?.trim() ? `Your message:\n${e.message.trim()}\n\n` : "") +
       `Kind regards,\nThe KaiRiOra Team`,
   })
+
+  if (error) throw new Error(`${error.name}: ${error.message}`)
 }

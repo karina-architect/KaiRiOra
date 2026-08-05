@@ -43,7 +43,7 @@ export async function POST(request: Request) {
   }
 
   if (!isEmailConfigured()) {
-    console.error("[v0] contact: SMTP is not configured (missing SMTP_USER / SMTP_PASS)")
+    console.error("[v0] contact: email is not configured (missing RESEND_API_KEY)")
     return NextResponse.json({ ok: false, error: "email_not_configured" }, { status: 503 })
   }
 
