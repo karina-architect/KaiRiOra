@@ -35,6 +35,35 @@ function getResend() {
   return cached
 }
 
+/** Resend's shared sender, usable before a custom domain is verified. */
+const FALLBACK_FROM = "KaiRiOra <onboarding@resend.dev>"
+
+type Payload = Parameters<Resend["emails"]["send"]>[0]
+
+/**
+ * Sends via the branded `consult@kairiora.com` sender. Until kairiora.com is
+ * verified in Resend that address is rejected with a 403, so we transparently
+ * retry once through Resend's shared sender. Once the domain is verified the
+ * first attempt succeeds and the fallback is never used - no code change needed.
+ */
+async function send(payload: Payload) {
+  const { error } = await getResend().emails.send(payload)
+  if (!error) return
+
+  const unverified = /not verified|domain/i.test(error.message ?? "")
+  if (!unverified || payload.from === FALLBACK_FROM) {
+    throw new Error(`${error.name}: ${error.message}`)
+  }
+
+  console.warn(
+    `[v0] email: ${FROM_ADDRESS} is not verified in Resend yet - falling back to onboarding@resend.dev. ` +
+      `Verify kairiora.com at resend.com/domains to send from ${FROM_ADDRESS}.`,
+  )
+
+  const retry = await getResend().emails.send({ ...payload, from: FALLBACK_FROM })
+  if (retry.error) throw new Error(`${retry.error.name}: ${retry.error.message}`)
+}
+
 export interface Enquiry {
   name: string
   email: string
@@ -106,7 +135,7 @@ export async function sendEnquiryNotification(e: Enquiry) {
     <p style="margin:22px 0 0;font-size:13px;color:#6b7280;">Reply directly to this email to respond to ${esc(e.name)}.</p>`,
   )
 
-  const { error } = await getResend().emails.send({
+  await send({
     from: FROM,
     to: [CONTACT_TO],
     replyTo: `${e.name} <${e.email}>`,
@@ -124,8 +153,6 @@ export async function sendEnquiryNotification(e: Enquiry) {
       .filter(Boolean)
       .join("\n"),
   })
-
-  if (error) throw new Error(`${error.name}: ${error.message}`)
 }
 
 /** Branded confirmation sent to the person who submitted the form. */
@@ -152,7 +179,7 @@ export async function sendAutoReply(e: Enquiry) {
      <p style="margin:22px 0 0;font-size:14px;">Kind regards,<br /><strong>The KaiRiOra Team</strong></p>`,
   )
 
-  const { error } = await getResend().emails.send({
+  await send({
     from: FROM,
     to: [e.email],
     replyTo: FROM_ADDRESS,
@@ -165,6 +192,4 @@ export async function sendAutoReply(e: Enquiry) {
       (e.message?.trim() ? `Your message:\n${e.message.trim()}\n\n` : "") +
       `Kind regards,\nThe KaiRiOra Team`,
   })
-
-  if (error) throw new Error(`${error.name}: ${error.message}`)
 }
