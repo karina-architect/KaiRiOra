@@ -43,9 +43,20 @@ export async function generateMetadata({
     },
     description: dict.meta.homeDescription,
     applicationName: SITE_NAME,
+    keywords: dict.meta.homeKeywords,
     alternates: {
       canonical: `${SITE_URL}/${loc}`,
       languages: languageAlternates(),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     openGraph: {
       type: "website",

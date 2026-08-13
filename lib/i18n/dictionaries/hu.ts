@@ -338,15 +338,24 @@ const hu: Dictionary = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — Európai bér-, munkaerő- és megfelelőségi megoldások",
+    homeTitle: "KaiRiOra — adat és MI, bérszámfejtés és EOR Európában",
     homeDescription:
-      "A KaiRiOra bérszámfejtést, alvállalkozó-kezelést, Employer of Record koordinációt, toborzást, áttelepülést és adat- és AI-tanácsadást nyújt Európa-szerte.",
-    countriesTitle: "Országok — KaiRiOra munkaerő- és megfelelőségi útmutatás",
+      "Adat- és MI-bevezetés, bérszámfejtés, Employer of Record, toborzás és agilis átalakulás Európa-szerte. Kérjen ingyenes felmérést.",
+    homeKeywords: [
+      "adat és MI tanácsadás Európa",
+      "MI-bevezetési szolgáltatások",
+      "bérszámfejtési szolgáltatások Európa",
+      "Employer of Record Európa",
+      "alvállalkozó-kezelés Európa",
+      "agilis átalakulás tanácsadás",
+      "munkaerő-megfelelőség Európa",
+    ],
+    countriesTitle: "Európai bérszámfejtési és foglalkoztatási útmutatók országonként",
     countriesDescription:
-      "Országspecifikus bér-, alvállalkozói, munkáltatói regisztrációs és tartózkodási szempontok Európa-szerte.",
-    contactTitle: "Felmérés kérése — KaiRiOra",
+      "Országonkénti útmutatók a bérszámfejtésről, az Employer of Recordról, az alvállalkozói megfelelőségről, a munkáltatói regisztrációról, a társadalombiztosításról és a tartózkodásról Európában.",
+    contactTitle: "Kapcsolat a KaiRiOrával — ingyenes felmérés",
     contactDescription:
-      "Kérjen ingyenes, kötelezettségmentes felmérést határokon átnyúló munkaerőigényeiről.",
+      "Kérjen ingyenes, kötelezettségmentes felmérést munkaerő-, adat- vagy MI-igényeiről Európában. Egy munkanapon belül válaszolunk.",
   },
 }
 

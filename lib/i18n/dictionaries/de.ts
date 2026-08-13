@@ -338,15 +338,24 @@ const de: Dictionary = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — Europäische Lösungen für Payroll, Personal und Compliance",
+    homeTitle: "KaiRiOra — Daten & KI, Payroll und EOR in Europa",
     homeDescription:
-      "KaiRiOra bietet Gehaltsabrechnung, Management von Auftragnehmern, Employer-of-Record-Koordination, Recruiting, Umzug und Daten- und KI-Beratung in ganz Europa.",
-    countriesTitle: "Länder — KaiRiOra Personal- und Compliance-Beratung",
+      "Daten- und KI-Einführung, Gehaltsabrechnung, Employer of Record, Recruiting und agile Transformation in ganz Europa. Kostenlose Bewertung anfordern.",
+    homeKeywords: [
+      "Daten- und KI-Beratung Europa",
+      "KI-Einführung Dienstleistungen",
+      "Payroll Services Europa",
+      "Employer of Record Europa",
+      "Management von Auftragnehmern Europa",
+      "Beratung agile Transformation",
+      "Personal-Compliance Europa",
+    ],
+    countriesTitle: "Payroll- und Beschäftigungsleitfäden für Europa nach Land",
     countriesDescription:
-      "Länderspezifische Überlegungen zu Payroll, Auftragnehmern, Arbeitgeberregistrierung und Aufenthalt in ganz Europa.",
-    contactTitle: "Bewertung anfordern — KaiRiOra",
+      "Länderleitfäden zu Payroll, Employer of Record, Auftragnehmer-Compliance, Arbeitgeberregistrierung, Sozialversicherung und Aufenthalt in Europa.",
+    contactTitle: "KaiRiOra kontaktieren — Kostenlose Bewertung",
     contactDescription:
-      "Fordern Sie eine kostenlose und unverbindliche Bewertung Ihres grenzüberschreitenden Personalbedarfs an.",
+      "Fordern Sie eine kostenlose, unverbindliche Bewertung Ihres Personal-, Daten- oder KI-Bedarfs in Europa an. Wir antworten innerhalb eines Werktags.",
   },
 }
 

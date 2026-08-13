@@ -338,15 +338,24 @@ const fr: Dictionary = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — Solutions européennes de paie, de gestion des effectifs et de conformité",
+    homeTitle: "KaiRiOra — Données et IA, paie et EOR en Europe",
     homeDescription:
-      "KaiRiOra propose l'administration de la paie, la gestion des prestataires, la coordination Employer of Record, le recrutement, la relocalisation et le conseil en Données et IA dans toute l'Europe.",
-    countriesTitle: "Pays — Conseils RH et conformité KaiRiOra",
+      "Adoption des données et de l'IA, administration de la paie, Employer of Record, recrutement et transformation agile dans toute l'Europe. Demandez une évaluation gratuite.",
+    homeKeywords: [
+      "conseil données et IA Europe",
+      "services d'adoption de l'IA",
+      "services de paie Europe",
+      "Employer of Record Europe",
+      "gestion des prestataires Europe",
+      "conseil en transformation agile",
+      "conformité sociale Europe",
+    ],
+    countriesTitle: "Guides de la paie et de l'emploi en Europe par pays",
     countriesDescription:
-      "Considérations spécifiques par pays sur la paie, les prestataires, l'enregistrement de l'employeur et la résidence dans toute l'Europe.",
-    contactTitle: "Demander une évaluation — KaiRiOra",
+      "Guides par pays sur la paie, l'Employer of Record, la conformité des prestataires, l'enregistrement de l'employeur, la sécurité sociale et la résidence en Europe.",
+    contactTitle: "Contacter KaiRiOra — Évaluation gratuite",
     contactDescription:
-      "Demandez une évaluation gratuite et sans engagement de vos besoins en main-d'œuvre transfrontalière.",
+      "Demandez une évaluation gratuite et sans engagement de vos besoins en main-d'œuvre, données ou IA en Europe. Nous répondons en un jour ouvré.",
   },
 }
 

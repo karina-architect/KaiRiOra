@@ -22,11 +22,10 @@ export function ServiceSchema({
     url: pageUrl,
     description: page.metaDescription,
     areaServed: "Europe",
-    provider: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    inLanguage: locale,
+    // Point at the site-wide Organization node instead of restating it, so
+    // search engines consolidate everything onto one entity.
+    provider: { "@id": `${SITE_URL}/#organization` },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: page.eyebrow,

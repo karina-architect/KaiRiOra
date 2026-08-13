@@ -338,15 +338,24 @@ const pt: Dictionary = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — Soluções europeias de folha de pagamento, força de trabalho e conformidade",
+    homeTitle: "KaiRiOra — Dados e IA, folha de pagamento e EOR na Europa",
     homeDescription:
-      "A KaiRiOra oferece administração de folha de pagamento, gestão de prestadores de serviços, coordenação de Employer of Record, recrutamento, realocação e consultoria de Dados e IA em toda a Europa.",
-    countriesTitle: "Países — Orientação de força de trabalho e conformidade da KaiRiOra",
+      "Adoção de dados e IA, administração de folha de pagamento, Employer of Record, recrutamento e transformação ágil em toda a Europa. Solicite uma avaliação gratuita.",
+    homeKeywords: [
+      "consultoria de dados e IA Europa",
+      "serviços de adoção de IA",
+      "serviços de folha de pagamento Europa",
+      "Employer of Record Europa",
+      "gestão de prestadores de serviços Europa",
+      "consultoria de transformação ágil",
+      "conformidade laboral Europa",
+    ],
+    countriesTitle: "Guias de folha de pagamento e emprego na Europa por país",
     countriesDescription:
-      "Considerações específicas por país sobre folha de pagamento, prestadores de serviços, registo do empregador e residência em toda a Europa.",
-    contactTitle: "Solicite uma avaliação — KaiRiOra",
+      "Guias por país sobre folha de pagamento, Employer of Record, conformidade de prestadores de serviços, registo do empregador, segurança social e residência na Europa.",
+    contactTitle: "Contacte a KaiRiOra — Avaliação gratuita",
     contactDescription:
-      "Solicite uma avaliação gratuita e sem compromisso das suas necessidades de força de trabalho transfronteiriça.",
+      "Solicite uma avaliação gratuita e sem compromisso das suas necessidades de força de trabalho, dados ou IA na Europa. Respondemos em um dia útil.",
   },
 }
 

@@ -7,6 +7,7 @@ import { isLocale, defaultLocale, locales, type Locale } from "@/lib/i18n/config
 import { localizedPath } from "@/lib/i18n/navigation"
 import { pageMetadata } from "@/lib/seo"
 import { countries, getCountry } from "@/lib/countries"
+import { CountrySchema } from "@/components/country-schema"
 import { PageHeader } from "@/components/page-header"
 
 export function generateStaticParams() {
@@ -64,6 +65,7 @@ export default async function CountryPage({
 
   return (
     <>
+      <CountrySchema locale={loc} country={data} countriesLabel={dict.meta.countriesTitle} />
       <PageHeader kicker={cp.heroKicker} title={data.name} subtitle={data.summary} />
 
       <section className="bg-background">
