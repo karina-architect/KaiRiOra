@@ -661,3 +661,132 @@ export function getStats(locale: Locale): StatsContent {
     ],
   }
 }
+
+export interface HeroFlowStep {
+  /** Stable key so the component can map its own icon and accent colour. */
+  key: "dataAi" | "workforce" | "agile"
+  title: string
+  outcome: string
+  href: string
+}
+
+export interface HeroInfographicContent {
+  eyebrow: string
+  startLabel: string
+  startValue: string
+  steps: HeroFlowStep[]
+  outcomeLabel: string
+  outcomeValue: string
+  footnote: string
+}
+
+/**
+ * Content for the hero value-flow infographic.
+ *
+ * Deliberately makes only structural claims (three pillars, Europe-wide
+ * delivery, single point of accountability) — all of which the site already
+ * states elsewhere. No client counts, percentages or savings figures, since
+ * inventing metrics for a real consultancy would be misleading.
+ */
+export function getHeroInfographic(locale: Locale): HeroInfographicContent {
+  return {
+    eyebrow: t(locale, {
+      en: "How we create value",
+      es: "Cómo creamos valor",
+      pt: "Como criamos valor",
+      fr: "Comment nous créons de la valeur",
+      de: "Wie wir Wert schaffen",
+      ru: "Как мы создаём ценность",
+      hu: "Hogyan teremtünk értéket",
+    }),
+    startLabel: t(locale, {
+      en: "Start with",
+      es: "Empieza con",
+      pt: "Comece com",
+      fr: "Commencez par",
+      de: "Beginnen mit",
+      ru: "Начните с",
+      hu: "Kezdje ezzel",
+    }),
+    startValue: t(locale, {
+      en: "Your business challenge",
+      es: "Tu reto empresarial",
+      pt: "O seu desafio de negócio",
+      fr: "Votre enjeu métier",
+      de: "Ihre unternehmerische Herausforderung",
+      ru: "Ваша бизнес-задача",
+      hu: "Az Ön üzleti kihívása",
+    }),
+    steps: [
+      {
+        key: "dataAi",
+        title: t(locale, groupTitles.dataAi),
+        outcome: t(locale, {
+          en: "Turn data into decisions and automate manual work",
+          es: "Convierte los datos en decisiones y automatiza el trabajo manual",
+          pt: "Transforme dados em decisões e automatize o trabalho manual",
+          fr: "Transformez les données en décisions et automatisez les tâches manuelles",
+          de: "Daten in Entscheidungen verwandeln und manuelle Arbeit automatisieren",
+          ru: "Превращайте данные в решения и автоматизируйте ручную работу",
+          hu: "Változtassa az adatokat döntésekké, és automatizálja a kézi munkát",
+        }),
+        href: "/services/data-ai-adoption",
+      },
+      {
+        key: "workforce",
+        title: t(locale, groupTitles.workforce),
+        outcome: t(locale, {
+          en: "Hire, pay and stay compliant across Europe",
+          es: "Contrata, paga y cumple la normativa en toda Europa",
+          pt: "Contrate, pague e cumpra a legislação em toda a Europa",
+          fr: "Recrutez, payez et restez conforme partout en Europe",
+          de: "Einstellen, bezahlen und europaweit rechtssicher bleiben",
+          ru: "Найм, выплаты и соответствие требованиям по всей Европе",
+          hu: "Alkalmazzon, fizessen és feleljen meg a szabályoknak Európa-szerte",
+        }),
+        href: "/services/workforce-business",
+      },
+      {
+        key: "agile",
+        title: t(locale, groupTitles.agile),
+        outcome: t(locale, {
+          en: "Deliver faster with teams that adapt to change",
+          es: "Entrega más rápido con equipos que se adaptan al cambio",
+          pt: "Entregue mais rápido com equipas que se adaptam à mudança",
+          fr: "Livrez plus vite avec des équipes qui s'adaptent",
+          de: "Schneller liefern mit Teams, die sich anpassen",
+          ru: "Работайте быстрее с командами, готовыми к переменам",
+          hu: "Szállítson gyorsabban a változásra reagáló csapatokkal",
+        }),
+        href: "/services/agile-transformation",
+      },
+    ],
+    outcomeLabel: t(locale, {
+      en: "The result",
+      es: "El resultado",
+      pt: "O resultado",
+      fr: "Le résultat",
+      de: "Das Ergebnis",
+      ru: "Результат",
+      hu: "Az eredmény",
+    }),
+    outcomeValue: t(locale, {
+      en: "Sustainable business growth",
+      es: "Crecimiento empresarial sostenible",
+      pt: "Crescimento sustentável do negócio",
+      fr: "Une croissance durable",
+      de: "Nachhaltiges Unternehmenswachstum",
+      ru: "Устойчивый рост бизнеса",
+      hu: "Fenntartható üzleti növekedés",
+    }),
+    footnote: t(locale, {
+      en: "Europe-wide delivery · one accountable partner",
+      es: "Entrega en toda Europa · un único socio responsable",
+      pt: "Entrega em toda a Europa · um único parceiro responsável",
+      fr: "Livraison partout en Europe · un seul partenaire responsable",
+      de: "Europaweite Umsetzung · ein verantwortlicher Partner",
+      ru: "Работа по всей Европе · один ответственный партнёр",
+      hu: "Európa-szerte · egyetlen felelős partner",
+    }),
+  }
+}

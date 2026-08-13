@@ -10,6 +10,22 @@ import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
 import { getPrimaryNav } from "@/lib/site-content"
 
+/**
+ * Splits the three-part brand tagline ("People First. AI Driven. Growth
+ * Focused.") and accents the middle sentence.
+ *
+ * Matching on sentence position rather than the literal string "AI Driven"
+ * keeps this working for every locale — the previous implementation hardcoded
+ * the English token, so translated taglines rendered a stray English
+ * "AI Driven" appended to the end. Falls back to the plain tagline whenever the
+ * translation is not three sentences.
+ */
+function taglineParts(tagline: string): { text: string; accent: boolean }[] {
+  const sentences = tagline.match(/[^.]+\.?/g)?.filter((s) => s.trim()) ?? []
+  if (sentences.length !== 3) return [{ text: tagline, accent: false }]
+  return sentences.map((text, i) => ({ text, accent: i === 1 }))
+}
+
 export function SiteHeader({
   locale,
   dict,
@@ -20,6 +36,7 @@ export function SiteHeader({
   const [mobileOpen, setMobileOpen] = useState(false)
   const nav = getPrimaryNav(locale)
 
+
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Brand strip */}
@@ -28,9 +45,11 @@ export function SiteHeader({
           <p className="flex items-center gap-1.5">
             <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-brand-gold" />
             <span className="font-medium">
-              {dict.brandStrip.tagline.split("AI Driven")[0]}
-              <span className="text-brand-gold">AI Driven</span>
-              {dict.brandStrip.tagline.split("AI Driven")[1]}
+              {taglineParts(dict.brandStrip.tagline).map((part, i) => (
+                <span key={i} className={part.accent ? "text-brand-gold" : undefined}>
+                  {part.text}
+                </span>
+              ))}
             </span>
           </p>
           <Link

@@ -4,6 +4,7 @@ import { localizedPath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
 import { getHero } from "@/lib/site-content"
+import { HeroInfographic } from "@/components/home/hero-infographic"
 
 /**
  * Headline colour ramp: deep navy -> brand blue -> teal.
@@ -44,8 +45,11 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
 
   return (
     <section className="relative overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
-        <div className="max-w-3xl">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+        {/* Copy and infographic sit side by side from lg up; the infographic
+            drops below the CTAs on narrower screens. */}
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_25rem] lg:gap-16">
+          <div>
           <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
             {lines.map((words, lineIndex) => (
               <span key={lineIndex} className="block">
@@ -92,8 +96,10 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
             <ShieldQuestion className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
             {h.complianceNote}
           </p>
-        </div>
+          </div>
 
+          <HeroInfographic locale={locale} />
+        </div>
       </div>
     </section>
   )
