@@ -4,7 +4,15 @@ import { localizedPath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
 import { getCoreServices } from "@/lib/site-content"
 
-const cardIcons = [Users, DatabaseZap, Workflow]
+/**
+ * Keyed by service href so the icon always follows its own card,
+ * independent of the order the cards are rendered in.
+ */
+const cardIcons: Record<string, typeof Users> = {
+  "/services/workforce-business": Users,
+  "/services/data-ai-adoption": DatabaseZap,
+  "/services/agile-transformation": Workflow,
+}
 
 export function CoreServices({ locale }: { locale: Locale }) {
   const c = getCoreServices(locale)
@@ -22,8 +30,8 @@ export function CoreServices({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {c.cards.map((card, i) => {
-            const Icon = cardIcons[i] ?? Users
+          {c.cards.map((card) => {
+            const Icon = cardIcons[card.href] ?? Users
             return (
               <article
                 key={card.title}

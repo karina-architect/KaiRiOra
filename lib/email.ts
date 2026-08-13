@@ -95,7 +95,7 @@ function shell(title: string, body: string) {
     </td></tr>
     <tr><td style="padding:28px;">${body}</td></tr>
     <tr><td style="background:#f9fafb;padding:16px 28px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px;">
-      KaiRiOra &middot; Workforce &amp; Business Services, Data &amp; AI Adoption, Agile Transformation
+      KaiRiOra &middot; Data &amp; AI Adoption, Workforce &amp; Business Services, Agile Transformation
     </td></tr>
   </table>
 </body></html>`

@@ -239,8 +239,8 @@ const resourceChildren: NavLeaf[] = [
  */
 export function getPrimaryNav(locale: Locale): NavLeaf[] {
   return [
-    { label: t(locale, groupTitles.workforce), href: "/services/workforce-business" },
     { label: t(locale, groupTitles.dataAi), href: "/services/data-ai-adoption" },
+    { label: t(locale, groupTitles.workforce), href: "/services/workforce-business" },
     { label: t(locale, groupTitles.agile), href: "/services/agile-transformation" },
     { label: t(locale, navLabels.contact), href: "/contact" },
   ]
@@ -331,13 +331,13 @@ export function getHero(locale: Locale): HeroContent {
       hu: "Egy megbízható partner az európai üzleti növekedéshez.",
     }),
     paragraph: t(locale, {
-      en: "KaiRiOra helps organisations grow through Workforce & Business Services, Data & AI Adoption and Agile Transformation, delivering practical business solutions across Europe.",
-      es: "KaiRiOra ayuda a las organizaciones a crecer mediante Servicios Laborales y Empresariales, Adopción de Datos e IA y Transformación Ágil, ofreciendo soluciones empresariales prácticas en toda Europa.",
-      pt: "A KaiRiOra ajuda as organizações a crescer através de Serviços de Força de Trabalho e Negócios, Adoção de Dados e IA e Transformação Ágil, oferecendo soluções empresariais práticas em toda a Europa.",
-      fr: "KaiRiOra aide les organisations à croître grâce aux Services RH & Entreprise, à l'Adoption des Données et de l'IA et à la Transformation Agile, en proposant des solutions concrètes à travers l'Europe.",
-      de: "KaiRiOra unterstützt Organisationen beim Wachstum durch Personal- & Unternehmensdienste, Daten- & KI-Einführung und Agile Transformation – mit praxisnahen Geschäftslösungen in ganz Europa.",
-      ru: "KaiRiOra помогает организациям расти с помощью кадровых и бизнес-услуг, внедрения данных и ИИ и Agile-трансформации, предоставляя практичные бизнес-решения по всей Европе.",
-      hu: "A KaiRiOra a munkaerő- és üzleti szolgáltatások, az adat- és MI-bevezetés, valamint az agilis átalakulás révén segíti a szervezetek növekedését, gyakorlati üzleti megoldásokat nyújtva Európa-szerte.",
+      en: "KaiRiOra helps organisations grow through Data & AI Adoption, Workforce & Business Services and Agile Transformation, delivering practical business solutions across Europe.",
+      es: "KaiRiOra ayuda a las organizaciones a crecer mediante Adopción de Datos e IA, Servicios Laborales y Empresariales y Transformación Ágil, ofreciendo soluciones empresariales prácticas en toda Europa.",
+      pt: "A KaiRiOra ajuda as organizações a crescer através de Adoção de Dados e IA, Serviços de Força de Trabalho e Negócios e Transformação Ágil, oferecendo soluções empresariais práticas em toda a Europa.",
+      fr: "KaiRiOra aide les organisations à croître grâce à l'Adoption des Données et de l'IA, aux Services RH & Entreprise et à la Transformation Agile, en proposant des solutions concrètes à travers l'Europe.",
+      de: "KaiRiOra unterstützt Organisationen beim Wachstum durch Daten- & KI-Einführung, Personal- & Unternehmensdienste und Agile Transformation – mit praxisnahen Geschäftslösungen in ganz Europa.",
+      ru: "KaiRiOra помогает организациям расти с помощью внедрения данных и ИИ, кадровых и бизнес-услуг и Agile-трансформации, предоставляя практичные бизнес-решения по всей Европе.",
+      hu: "A KaiRiOra az adat- és MI-bevezetés, a munkaerő- és üzleti szolgáltatások, valamint az agilis átalakulás révén segíti a szervezetek növekedését, gyakorlati üzleti megoldásokat nyújtva Európa-szerte.",
     }),
     ctaPrimary: t(locale, {
       en: "Explore Our Services",
@@ -358,8 +358,8 @@ export function getHero(locale: Locale): HeroContent {
       hu: "Konzultáció foglalása",
     }),
     pillars: [
-      t(locale, groupTitles.workforce),
       t(locale, groupTitles.dataAi),
+      t(locale, groupTitles.workforce),
       t(locale, groupTitles.agile),
     ],
   }
@@ -401,19 +401,6 @@ export function getCoreServices(locale: Locale): CoreContent {
     }),
     cards: [
       {
-        title: t(locale, groupTitles.workforce),
-        desc: "Payroll, Employer of Record, Accounting, HR, Recruitment, Staff Augmentation, Contractor Management and Workforce Administration.",
-        button: t(locale, learnMoreLabel),
-        href: "/services/workforce-business",
-        items: [
-          "Payroll Administration & EOR",
-          "Accounting & Bookkeeping",
-          "Contractor Management",
-          "Recruitment & Staff Augmentation",
-          "HR & Work Permit Support",
-        ],
-      },
-      {
         title: t(locale, groupTitles.dataAi),
         desc: "AI Strategy, Data Strategy, Data Governance, Data Engineering, Analytics, AI Automation and AI Training.",
         button: t(locale, learnMoreLabel),
@@ -424,6 +411,19 @@ export function getCoreServices(locale: Locale): CoreContent {
           "Data Governance",
           "BI & Analytics",
           "AI Automation & Training",
+        ],
+      },
+      {
+        title: t(locale, groupTitles.workforce),
+        desc: "Payroll, Employer of Record, Accounting, HR, Recruitment, Staff Augmentation, Contractor Management and Workforce Administration.",
+        button: t(locale, learnMoreLabel),
+        href: "/services/workforce-business",
+        items: [
+          "Payroll Administration & EOR",
+          "Accounting & Bookkeeping",
+          "Contractor Management",
+          "Recruitment & Staff Augmentation",
+          "HR & Work Permit Support",
         ],
       },
       {
