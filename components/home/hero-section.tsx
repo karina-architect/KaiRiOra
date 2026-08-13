@@ -1,12 +1,9 @@
-import Image from "next/image"
 import Link from "next/link"
-import { Check, ArrowRight, Users, Building2, ShieldCheck, ShieldQuestion } from "lucide-react"
+import { Check, ArrowRight, ShieldQuestion } from "lucide-react"
 import { localizedPath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
 import { getHero } from "@/lib/site-content"
-
-const whyIcons = [Users, Building2, ShieldCheck]
 
 export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.hero
@@ -14,9 +11,8 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
 
   return (
     <section className="relative overflow-hidden bg-background">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-28">
-        {/* Left: copy */}
-        <div className="lg:col-span-6">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-28">
+        <div className="max-w-3xl">
           <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
             {hero.line1}
             <br />
@@ -59,44 +55,6 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
           </p>
         </div>
 
-        {/* Right: map + why card */}
-        <div className="relative lg:col-span-6">
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-lg">
-            <Image
-              src="/europe-map.png"
-              alt="Map of Europe with Spain and Portugal highlighted"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain"
-            />
-          </div>
-
-          {/* Why card */}
-          <div className="mx-auto mt-6 max-w-sm rounded-xl border border-border bg-white p-5 shadow-lg lg:absolute lg:right-0 lg:top-4 lg:mt-0">
-            <h2 className="font-heading text-base font-bold text-navy">{h.whyCard.title}</h2>
-            <ul className="mt-4 flex flex-col gap-4">
-              {h.whyCard.points.map((point, i) => {
-                const Icon = whyIcons[i] ?? Users
-                return (
-                  <li key={point} className="flex items-start gap-3">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-softblue text-blue">
-                      <Icon className="h-4 w-4" aria-hidden />
-                    </span>
-                    <span className="text-xs leading-relaxed text-foreground/80">{point}</span>
-                  </li>
-                )
-              })}
-            </ul>
-            <Link
-              href={localizedPath(locale, "/countries/spain")}
-              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue transition-opacity hover:opacity-80"
-            >
-              {h.whyCard.learnMore}
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   )
