@@ -18,6 +18,10 @@
   --color-softblue: #eaf3ff;
   --color-softgold: #fff8e8;
   --color-softgreen: #f2f8e9;
+  /* Warm ivory ground for the "how we create value" panel, matched to the
+     brand infographic so the extracted illustrations sit on the same tone. */
+  --color-cream: #f7efdb;
+  --color-cream-deep: #efe2c2;
 
   /* Brand palette — brand-prefixed aliases (used across components) */
   --color-brand-navy: #0a1d3a;
