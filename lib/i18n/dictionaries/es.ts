@@ -353,7 +353,7 @@ const es: Dictionary = {
     countriesTitle: "Guías de nóminas y empleo en Europa por país",
     countriesDescription:
       "Guías por país sobre nóminas, Employer of Record, cumplimiento de contratistas, registro del empleador, seguridad social y residencia en Europa.",
-    contactTitle: "Contacta con KaiRiOra — Evaluación gratuita",
+    contactTitle: "Contacto — Evaluación gratuita de personal e IA",
     contactDescription:
       "Solicita una evaluación gratuita y sin compromiso de tus necesidades de personal, datos o IA en Europa. Respondemos en un día laborable.",
   },

@@ -353,7 +353,7 @@ const de: Dictionary = {
     countriesTitle: "Payroll- und Beschäftigungsleitfäden für Europa nach Land",
     countriesDescription:
       "Länderleitfäden zu Payroll, Employer of Record, Auftragnehmer-Compliance, Arbeitgeberregistrierung, Sozialversicherung und Aufenthalt in Europa.",
-    contactTitle: "KaiRiOra kontaktieren — Kostenlose Bewertung",
+    contactTitle: "Kontakt — Kostenlose Personal- und KI-Bewertung",
     contactDescription:
       "Fordern Sie eine kostenlose, unverbindliche Bewertung Ihres Personal-, Daten- oder KI-Bedarfs in Europa an. Wir antworten innerhalb eines Werktags.",
   },

@@ -353,7 +353,7 @@ const pt: Dictionary = {
     countriesTitle: "Guias de folha de pagamento e emprego na Europa por país",
     countriesDescription:
       "Guias por país sobre folha de pagamento, Employer of Record, conformidade de prestadores de serviços, registo do empregador, segurança social e residência na Europa.",
-    contactTitle: "Contacte a KaiRiOra — Avaliação gratuita",
+    contactTitle: "Contacto — Avaliação gratuita de força de trabalho e IA",
     contactDescription:
       "Solicite uma avaliação gratuita e sem compromisso das suas necessidades de força de trabalho, dados ou IA na Europa. Respondemos em um dia útil.",
   },

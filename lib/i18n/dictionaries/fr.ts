@@ -353,7 +353,7 @@ const fr: Dictionary = {
     countriesTitle: "Guides de la paie et de l'emploi en Europe par pays",
     countriesDescription:
       "Guides par pays sur la paie, l'Employer of Record, la conformité des prestataires, l'enregistrement de l'employeur, la sécurité sociale et la résidence en Europe.",
-    contactTitle: "Contacter KaiRiOra — Évaluation gratuite",
+    contactTitle: "Contact — Évaluation gratuite main-d'œuvre et IA",
     contactDescription:
       "Demandez une évaluation gratuite et sans engagement de vos besoins en main-d'œuvre, données ou IA en Europe. Nous répondons en un jour ouvré.",
   },

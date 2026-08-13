@@ -354,7 +354,7 @@ const en = {
     countriesTitle: "European Payroll & Employment Guides by Country",
     countriesDescription:
       "Country guides to payroll, Employer of Record, contractor compliance, employer registration, social security and residence across Europe.",
-    contactTitle: "Contact KaiRiOra — Free Assessment",
+    contactTitle: "Contact Us — Free Workforce & AI Assessment",
     contactDescription:
       "Request a free, no-obligation assessment of your workforce, data or AI adoption needs in Europe. We reply within one business day.",
   },

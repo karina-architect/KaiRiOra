@@ -353,7 +353,7 @@ const hu: Dictionary = {
     countriesTitle: "Európai bérszámfejtési és foglalkoztatási útmutatók országonként",
     countriesDescription:
       "Országonkénti útmutatók a bérszámfejtésről, az Employer of Recordról, az alvállalkozói megfelelőségről, a munkáltatói regisztrációról, a társadalombiztosításról és a tartózkodásról Európában.",
-    contactTitle: "Kapcsolat a KaiRiOrával — ingyenes felmérés",
+    contactTitle: "Kapcsolat — ingyenes munkaerő- és MI-felmérés",
     contactDescription:
       "Kérjen ingyenes, kötelezettségmentes felmérést munkaerő-, adat- vagy MI-igényeiről Európában. Egy munkanapon belül válaszolunk.",
   },
