@@ -20,8 +20,27 @@ export function HeroInfographic({ locale }: { locale: Locale }) {
 
   return (
     // Capped and centred while stacked so it does not stretch to full width on
-    // tablet; fills its own grid column from lg up.
-    <figure className="relative mx-auto w-full max-w-md rounded-3xl bg-navy p-6 shadow-xl ring-1 ring-navy-700 sm:p-7 lg:max-w-none">
+    // tablet; fills its own grid column from md up.
+    <figure className="relative mx-auto w-full max-w-md md:max-w-none">
+      {/* Photography anchors the panel: people first, then the proof. */}
+      <div className="relative overflow-hidden rounded-t-3xl">
+        <img
+          src="/images/hero-team.png"
+          alt={g.imageAlt}
+          width={1024}
+          height={576}
+          className="aspect-[16/9] w-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Fades the photo into the navy panel so the two read as one card. */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy to-transparent"
+          aria-hidden
+        />
+      </div>
+
+      <div className="rounded-b-3xl bg-navy p-6 shadow-xl ring-1 ring-navy-700 sm:p-7">
       <figcaption className="text-xs font-semibold uppercase tracking-wider text-gold">
         {g.eyebrow}
       </figcaption>
@@ -97,6 +116,7 @@ export function HeroInfographic({ locale }: { locale: Locale }) {
       <p className="mt-5 border-t border-white/10 pt-4 text-center text-[11px] font-medium text-white/45">
         {g.footnote}
       </p>
+      </div>
     </figure>
   )
 }

@@ -46,11 +46,12 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
   return (
     <section className="relative overflow-hidden bg-background">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
-        {/* Copy and infographic sit side by side from lg up; the infographic
-            drops below the CTAs on narrower screens. */}
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_25rem] lg:gap-16">
+        {/* Copy and infographic sit side by side from md (768px) up, so the
+            right-hand gap is filled on tablets and small laptops too; the
+            infographic only stacks below the CTAs on phones. */}
+        <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_20rem] md:gap-8 lg:grid-cols-[minmax(0,1fr)_25rem] lg:gap-16">
           <div>
-          <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="text-balance font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
             {lines.map((words, lineIndex) => (
               <span key={lineIndex} className="block">
                 {words.map(({ word, index }) => (
@@ -65,7 +66,7 @@ export function HeroSection({ locale, dict }: { locale: Locale; dict: Dictionary
             {hero.paragraph}
           </p>
 
-          <ul className="mt-6 grid max-w-xl gap-x-6 gap-y-2.5 sm:grid-cols-2">
+          <ul className="mt-6 grid max-w-xl gap-x-6 gap-y-2.5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
             {hero.pillars.map((b) => (
               <li key={b} className="flex items-start gap-2 text-sm font-medium text-foreground/80">
                 <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-softgreen text-green-600">

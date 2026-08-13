@@ -672,6 +672,7 @@ export interface HeroFlowStep {
 
 export interface HeroInfographicContent {
   eyebrow: string
+  imageAlt: string
   startLabel: string
   startValue: string
   steps: HeroFlowStep[]
@@ -698,6 +699,15 @@ export function getHeroInfographic(locale: Locale): HeroInfographicContent {
       de: "Wie wir Wert schaffen",
       ru: "Как мы создаём ценность",
       hu: "Hogyan teremtünk értéket",
+    }),
+    imageAlt: t(locale, {
+      en: "A KaiRiOra consultant presenting data insights to a client team in a modern European office",
+      es: "Una consultora de KaiRiOra presentando análisis de datos al equipo de un cliente en una oficina europea moderna",
+      pt: "Uma consultora da KaiRiOra a apresentar análises de dados à equipa de um cliente num escritório europeu moderno",
+      fr: "Une consultante KaiRiOra présentant des analyses de données à l'équipe d'un client dans un bureau européen moderne",
+      de: "Eine KaiRiOra-Beraterin präsentiert einem Kundenteam Datenanalysen in einem modernen europäischen Büro",
+      ru: "Консультант KaiRiOra представляет аналитику данных команде клиента в современном европейском офисе",
+      hu: "A KaiRiOra tanácsadója adatelemzést mutat be egy ügyfélcsapatnak egy modern európai irodában",
     }),
     startLabel: t(locale, {
       en: "Start with",
