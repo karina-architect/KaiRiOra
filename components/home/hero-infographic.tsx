@@ -25,11 +25,11 @@ export function HeroInfographic({ locale }: { locale: Locale }) {
       {/* Photography anchors the panel: people first, then the proof. */}
       <div className="relative overflow-hidden rounded-t-3xl">
         <img
-          src="/images/hero-team.png"
+          src="/images/hero-team.webp"
           alt={g.imageAlt}
           width={1024}
-          height={576}
-          className="aspect-[16/9] w-full object-cover object-center"
+          height={1024}
+          className="aspect-[16/10] w-full object-cover object-[center_38%]"
           loading="eager"
           fetchPriority="high"
         />
