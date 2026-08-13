@@ -42,7 +42,9 @@ export function Logo({ variant = "light", showTagline = true, className }: LogoP
       )}
       <span className="flex flex-col leading-none">
         <span className="font-heading text-xl font-bold tracking-tight">
-          <span className={isDark ? "text-white" : "text-navy"}>Kai</span>
+          <span className={isDark ? "text-white" : "text-navy"}>K</span>
+          {/* "ai" picked out in brand green; the darker shade keeps it legible on white */}
+          <span className={isDark ? "text-green" : "text-green-600"}>ai</span>
           <span className="text-blue">Ri</span>
           <span className="text-gold">Ora</span>
         </span>
