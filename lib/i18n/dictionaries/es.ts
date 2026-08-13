@@ -338,15 +338,24 @@ const es: Dictionary = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — Soluciones europeas de nóminas, personal y cumplimiento",
+    homeTitle: "KaiRiOra — Datos e IA, nóminas y EOR en Europa",
     homeDescription:
-      "KaiRiOra ofrece administración de nóminas, gestión de contratistas, coordinación de Employer of Record, reclutamiento, reubicación y consultoría de Datos e IA en toda Europa.",
-    countriesTitle: "Países — Orientación de personal y cumplimiento de KaiRiOra",
+      "Adopción de datos e IA, administración de nóminas, Employer of Record, reclutamiento y transformación ágil en toda Europa. Solicita una evaluación gratuita.",
+    homeKeywords: [
+      "consultoría de datos e IA Europa",
+      "servicios de adopción de IA",
+      "servicios de nóminas Europa",
+      "Employer of Record Europa",
+      "gestión de contratistas Europa",
+      "consultoría de transformación ágil",
+      "cumplimiento laboral Europa",
+    ],
+    countriesTitle: "Guías de nóminas y empleo en Europa por país",
     countriesDescription:
-      "Consideraciones específicas por país sobre nóminas, contratistas, registro del empleador y residencia en toda Europa.",
-    contactTitle: "Solicita una evaluación — KaiRiOra",
+      "Guías por país sobre nóminas, Employer of Record, cumplimiento de contratistas, registro del empleador, seguridad social y residencia en Europa.",
+    contactTitle: "Contacta con KaiRiOra — Evaluación gratuita",
     contactDescription:
-      "Solicita una evaluación gratuita y sin compromiso de tus necesidades de personal transfronterizo.",
+      "Solicita una evaluación gratuita y sin compromiso de tus necesidades de personal, datos o IA en Europa. Respondemos en un día laborable.",
   },
 }
 

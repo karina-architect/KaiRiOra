@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { getDictionary } from "@/lib/i18n"
 import { isLocale, defaultLocale, type Locale } from "@/lib/i18n/config"
+import { pageMetadata } from "@/lib/seo"
 import { PageHeader } from "@/components/page-header"
 import { SalaryCalculator } from "@/components/salary-calculator"
 
@@ -10,11 +11,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const dict = await getDictionary(isLocale(locale) ? (locale as Locale) : defaultLocale)
-  return {
-    title: `${dict.calculator.title} — KaiRiOra`,
+  const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
+  const dict = await getDictionary(loc)
+  return pageMetadata({
+    locale: loc,
+    path: "/tools/salary-calculator",
+    title: `${dict.calculator.title} — Employer Cost Estimator for Europe`,
     description: dict.calculator.subtitle,
-  }
+    keywords: [
+      "European salary calculator",
+      "employer cost calculator Europe",
+      "employment cost estimator",
+      "gross to net salary Europe",
+      "cost of hiring in Europe",
+    ],
+  })
 }
 
 export default async function SalaryCalculatorPage({

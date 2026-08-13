@@ -3,6 +3,7 @@ import { Poppins, Montserrat } from "next/font/google"
 import { notFound } from "next/navigation"
 import "../globals.css"
 import { locales, isLocale, type Locale, SITE_URL, SITE_NAME } from "@/lib/i18n/config"
+import { languageAlternates } from "@/lib/seo"
 import { getDictionary } from "@/lib/i18n"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
@@ -34,8 +35,6 @@ export async function generateMetadata({
   const { locale } = await params
   const loc: Locale = isLocale(locale) ? locale : "en"
   const dict = await getDictionary(loc)
-  const languages: Record<string, string> = {}
-  for (const l of locales) languages[l] = `${SITE_URL}/${l}`
   return {
     metadataBase: new URL(SITE_URL),
     title: {
@@ -46,7 +45,7 @@ export async function generateMetadata({
     applicationName: SITE_NAME,
     alternates: {
       canonical: `${SITE_URL}/${loc}`,
-      languages,
+      languages: languageAlternates(),
     },
     openGraph: {
       type: "website",

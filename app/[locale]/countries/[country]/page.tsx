@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import { getDictionary } from "@/lib/i18n"
 import { isLocale, defaultLocale, locales, type Locale } from "@/lib/i18n/config"
 import { localizedPath } from "@/lib/i18n/navigation"
+import { pageMetadata } from "@/lib/seo"
 import { countries, getCountry } from "@/lib/countries"
 import { PageHeader } from "@/components/page-header"
 
@@ -22,11 +23,22 @@ export async function generateMetadata({
   const { locale, country } = await params
   const data = getCountry(country)
   if (!data) return {}
-  const dict = await getDictionary(isLocale(locale) ? (locale as Locale) : defaultLocale)
-  return {
-    title: `${data.name} — ${dict.countryPage.heroKicker} — KaiRiOra`,
-    description: data.summary,
-  }
+  const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
+  return pageMetadata({
+    locale: loc,
+    path: `/countries/${data.slug}`,
+    // Lead with the services people actually search for, then the country.
+    title: `Payroll, EOR & Employment Compliance in ${data.name}`,
+    description: `${data.summary} Guidance on payroll, Employer of Record, contractor compliance, employer registration and residence in ${data.name}.`,
+    keywords: [
+      `payroll ${data.name}`,
+      `employer of record ${data.name}`,
+      `hire employees in ${data.name}`,
+      `contractor compliance ${data.name}`,
+      `employer registration ${data.name}`,
+      `social security contributions ${data.name}`,
+    ],
+  })
 }
 
 export default async function CountryPage({

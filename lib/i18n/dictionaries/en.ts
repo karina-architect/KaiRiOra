@@ -338,15 +338,25 @@ const en = {
     },
   },
   meta: {
-    homeTitle: "KaiRiOra — European Payroll, Workforce & Compliance Solutions",
+    homeTitle: "KaiRiOra — Data & AI, Payroll and EOR Services in Europe",
     homeDescription:
-      "KaiRiOra provides payroll administration, contractor management, Employer of Record coordination, recruitment, relocation and Data & AI consulting across Europe.",
-    countriesTitle: "Countries — KaiRiOra Workforce & Compliance Guidance",
+      "Data & AI adoption, payroll administration, Employer of Record, recruitment and agile transformation across Europe. Book a free, no-obligation assessment.",
+    homeKeywords: [
+      "Data and AI consulting Europe",
+      "AI adoption services",
+      "European payroll services",
+      "Employer of Record Europe",
+      "contractor management Europe",
+      "agile transformation consulting",
+      "workforce compliance Europe",
+      "recruitment and staff augmentation Europe",
+    ],
+    countriesTitle: "European Payroll & Employment Guides by Country",
     countriesDescription:
-      "Country-specific payroll, contractor, employer-registration and residence considerations across Europe.",
-    contactTitle: "Request an Assessment — KaiRiOra",
+      "Country guides to payroll, Employer of Record, contractor compliance, employer registration, social security and residence across Europe.",
+    contactTitle: "Contact KaiRiOra — Free Assessment",
     contactDescription:
-      "Request a free, no-obligation assessment of your cross-border workforce needs.",
+      "Request a free, no-obligation assessment of your workforce, data or AI adoption needs in Europe. We reply within one business day.",
   },
 } as const
 

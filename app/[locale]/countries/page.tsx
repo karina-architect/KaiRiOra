@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight, MapPin } from "lucide-react"
 import { getDictionary } from "@/lib/i18n"
 import { isLocale, defaultLocale, type Locale } from "@/lib/i18n/config"
+import { pageMetadata } from "@/lib/seo"
 import { localizedPath } from "@/lib/i18n/navigation"
 import { countries } from "@/lib/countries"
 import { PageHeader } from "@/components/page-header"
@@ -13,11 +14,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const dict = await getDictionary(isLocale(locale) ? (locale as Locale) : defaultLocale)
-  return {
+  const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
+  const dict = await getDictionary(loc)
+  return pageMetadata({
+    locale: loc,
+    path: "/countries",
     title: dict.meta.countriesTitle,
     description: dict.meta.countriesDescription,
-  }
+    keywords: [
+      "European payroll by country",
+      "employer of record Europe",
+      "contractor compliance Europe",
+      "employer registration requirements",
+      "hiring in Europe guide",
+    ],
+  })
 }
 
 export default async function CountriesPage({

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getDictionary } from "@/lib/i18n"
 import { isLocale, defaultLocale, locales, type Locale } from "@/lib/i18n/config"
+import { pageMetadata } from "@/lib/seo"
 import { PageHeader } from "@/components/page-header"
 
 const SLUGS = ["privacy", "terms", "notice", "cookies"] as const
@@ -22,9 +23,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params
   if (!SLUGS.includes(slug as Slug)) return {}
-  const dict = await getDictionary(isLocale(locale) ? (locale as Locale) : defaultLocale)
+  const loc = isLocale(locale) ? (locale as Locale) : defaultLocale
+  const dict = await getDictionary(loc)
   const content = dict.legal[dictKey(slug as Slug)]
-  return { title: `${content.title} — KaiRiOra`, description: content.body.slice(0, 155) }
+  return pageMetadata({
+    locale: loc,
+    path: `/legal/${slug}`,
+    title: content.title,
+    description: content.body.slice(0, 155),
+    // Boilerplate pages carry no search value and the copy is still
+    // placeholder, so keep them out of the index while staying crawlable.
+    noIndex: true,
+  })
 }
 
 export default async function LegalPage({

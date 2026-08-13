@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import type { Locale } from "@/lib/i18n/config"
-import { locales, SITE_URL, SITE_NAME } from "@/lib/i18n/config"
+import { pageMetadata } from "@/lib/seo"
 
 /**
  * Content model for the three core-service landing pages.
@@ -605,7 +605,7 @@ const metaByPillar: Record<ServiceSlug, { title: Localized; desc: Localized; key
       pt: "Folha de pagamento, Employer of Record, contabilidade, RH, recrutamento, staff augmentation, gestão de prestadores e apoio a autorizações de trabalho em toda a Europa.",
       fr: "Paie, Employer of Record, comptabilité, RH, recrutement, staff augmentation, gestion des prestataires et permis de travail à travers l'Europe.",
       de: "Payroll, Employer of Record, Buchhaltung, HR, Recruiting, Staff Augmentation, Contractor Management und Arbeitserlaubnis-Support in ganz Europa.",
-      ru: "Зарплата, Employer of Record, бухгалтерия, HR, подбор персонала, staff augmentation, управление подрядчиками и поддержка разрешений на работу по всей Европе.",
+      ru: "Зарплата, Employer of Record, бухгалтери��, HR, подбор персонала, staff augmentation, управление подрядчиками и поддержка разрешений на работу по всей Европе.",
       hu: "Bérszámfejtés, Employer of Record, könyvelés, HR, toborzás, staff augmentation, vállalkozókezelés és munkavállalási engedély támogatás Európa-szerte.",
     },
     keywords: [
@@ -722,29 +722,11 @@ export function getServicePage(slug: ServiceSlug, locale: Locale): ServicePageCo
 
 export function getServiceMetadata(slug: ServiceSlug, locale: Locale): Metadata {
   const page = getServicePage(slug, locale)
-  const path = `/services/${slug}`
-  const languages: Record<string, string> = {}
-  for (const l of locales) languages[l] = `${SITE_URL}/${l}${path}`
-  const url = `${SITE_URL}/${locale}${path}`
-  return {
+  return pageMetadata({
+    locale,
+    path: `/services/${slug}`,
     title: page.metaTitle,
     description: page.metaDescription,
     keywords: page.keywords,
-    alternates: { canonical: url, languages },
-    openGraph: {
-      type: "website",
-      siteName: SITE_NAME,
-      title: page.metaTitle,
-      description: page.metaDescription,
-      url,
-      locale,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: SITE_NAME }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: page.metaTitle,
-      description: page.metaDescription,
-      images: ["/og-image.png"],
-    },
-  }
+  })
 }
