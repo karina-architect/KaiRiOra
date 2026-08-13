@@ -10,13 +10,19 @@ import {
   ArrowRight,
 } from "lucide-react"
 import { localizedPath } from "@/lib/i18n/navigation"
+import { aiFirst } from "@/lib/services-order"
 import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
 
+/** Aligned with the canonical dictionary order, not the display order. */
 const serviceIcons = [Receipt, UserCog, UserPlus, Globe2, Plane, BrainCircuit, GraduationCap]
 
 export function ServicesSection({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const s = dict.services
+  /* Pair each icon with its own service before reordering, so an icon can never
+     end up on the wrong card. */
+  const cards = aiFirst(s.items.map((item, i) => ({ item, Icon: serviceIcons[i] ?? Receipt })))
+
   return (
     <section id="services" className="scroll-mt-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
@@ -28,8 +34,7 @@ export function ServicesSection({ locale, dict }: { locale: Locale; dict: Dictio
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {s.items.map((item, i) => {
-            const Icon = serviceIcons[i] ?? Receipt
+          {cards.map(({ item, Icon }) => {
             return (
               <div
                 key={item.title}

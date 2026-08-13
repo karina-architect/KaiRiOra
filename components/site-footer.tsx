@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { localizedPath } from "@/lib/i18n/navigation"
+import { aiFirst } from "@/lib/services-order"
 import { countries } from "@/lib/countries"
 import type { Locale } from "@/lib/i18n/config"
 import type { Dictionary } from "@/lib/i18n/dictionaries/en"
@@ -28,7 +29,7 @@ export function SiteFooter({
 
           <FooterColumn
             title={cols.services.title}
-            links={cols.services.links.map((label) => ({
+            links={aiFirst(cols.services.links).map((label) => ({
               label,
               href: localizedPath(locale, "/#services"),
             }))}
