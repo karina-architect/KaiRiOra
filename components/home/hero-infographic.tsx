@@ -22,18 +22,19 @@ export function HeroInfographic({ locale }: { locale: Locale }) {
     // Capped and centred while stacked so it does not stretch to full width on
     // tablet; fills its own grid column from md up.
     <figure className="relative mx-auto w-full max-w-md md:max-w-none">
-      {/* Photography anchors the panel: people first, then the proof. */}
-      <div className="relative overflow-hidden rounded-t-3xl">
+      {/* Abstract data-architecture visual signals the AI capability without
+          dating the way stock photography of people does. */}
+      <div className="relative overflow-hidden rounded-t-3xl bg-navy">
         <img
-          src="/images/hero-team.webp"
+          src="/images/hero-tech.webp"
           alt={g.imageAlt}
           width={1024}
           height={1024}
-          className="aspect-[16/10] w-full object-cover object-[center_38%]"
+          className="aspect-[16/10] w-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
         />
-        {/* Fades the photo into the navy panel so the two read as one card. */}
+        {/* Fades the render into the navy panel so the two read as one card. */}
         <div
           className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy to-transparent"
           aria-hidden
